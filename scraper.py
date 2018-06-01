@@ -2,30 +2,32 @@ import collections
 import lxml.html
 import requests
 
-scheduleResponse = requests.post(
-    'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
-    data={
-        'validterm': 201830,
-        'subjcode': 'ALL',
-        'openclasses': 'N'
-    }
-)
 
-root = lxml.html.fromstring(scheduleResponse.content)
-
-allRows = root.cssselect('table.datadisplaytable > tr')
+def fetchSchedulePage():
+    return requests.post(
+        'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
+        data={
+            'validterm': 201830,
+            'subjcode': 'ALL',
+            'openclasses': 'N'
+        }
+    ).content
 
 
-def isHeader(row):
-    return row.getchildren()[0].tag == 'th'
+def parseSchedulePage(schedulePage):
+    root = lxml.html.fromstring(schedulePage)
+    allRows = root.cssselect('table.datadisplaytable > tr')
 
+    def isHeader(row):
+        return row.getchildren()[0].tag == 'th'
 
-def isExamRow(row):
-    ACTIVITY_COLUMN = 4
-    return row.getchildren()[ACTIVITY_COLUMN].text_content == 'EXAM'
+    def isExamRow(row):
+        ACTIVITY_COLUMN = 4
+        return row.getchildren()[ACTIVITY_COLUMN].text_content == 'EXAM'
 
+    classRows = filter(lambda r: not isHeader(r) and not isExamRow(r), allRows)
 
-classRows = filter(lambda r: not isHeader(r) and not isExamRow(r), allRows)
+    return [rowToClassMap(r) for r in classRows]
 
 
 def rowToClassMap(row):
