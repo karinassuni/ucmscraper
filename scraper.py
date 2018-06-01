@@ -23,7 +23,7 @@ def parseSchedulePage(schedulePage):
 
     def isExamRow(row):
         ACTIVITY_COLUMN = 4
-        return row.getchildren()[ACTIVITY_COLUMN].text_content == 'EXAM'
+        return row.getchildren()[ACTIVITY_COLUMN].text_content() == 'EXAM'
 
     classRows = filter(lambda r: not isHeader(r) and not isExamRow(r), allRows)
 
