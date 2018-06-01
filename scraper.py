@@ -24,10 +24,10 @@ def parseSchedulePage(schedulePage):
 
     classRows = filter(isClassRow, allRows)
 
-    return [rowToClassMap(r) for r in classRows]
+    return [_rowToClassMap(r) for r in classRows]
 
 
-def rowToClassMap(row):
+def _rowToClassMap(row):
     def getText(cell):
         return cell.text_content()
 
