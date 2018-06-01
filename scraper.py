@@ -62,14 +62,22 @@ def rowToClassMap(row):
 
     def fieldifyDays(cell):
         DAYS = 'MTWRFS'
-        return [DAYS.index(day) for day in cell.text_content()]
+        dayText = cell.text_content()
+        if dayText == '&nbsp':
+            return ''
+        else:
+            return [DAYS.index(day) for day in dayText]
 
     def fieldifyTime(cell):
+        timeText = cell.text_content()
+        if 'TBD' in timeText:
+            return 'TBD'
+
         def toMinutes(timeString):
             hours, minutes = timeString.split(':')
             return int(hours) * 60 + int(minutes)
 
-        rawStart, rawEnd = cell.text_content().split('-')
+        rawStart, rawEnd = timeText.split('-')
         start = toMinutes(rawStart)
         end = toMinutes(rawEnd[:-2])
         if rawEnd[-2:] == "pm" and not (toMinutes('12:00') <= end <= toMinutes('12:59')):
