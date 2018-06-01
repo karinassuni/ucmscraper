@@ -15,76 +15,18 @@ root = lxml.html.fromstring(scheduleResponse.content)
 
 allRows = root.cssselect('table.datadisplaytable > tr')
 
-COLUMNS = ('CRN', 'departmentID', 'title', 'units', 'activity', 'days', 'time', 'location', 'termLength', 'instructor', 'maxSeats', 'takenSeats', 'freeSeats')
 
 def isHeader(row):
     return row.getchildren()[0].tag == 'th'
 
+
 def isExamRow(row):
-    return row.getchildren()[COLUMNS.index('activity')].text_content == 'EXAM'
+    ACTIVITY_COLUMN = 4
+    return row.getchildren()[ACTIVITY_COLUMN].text_content == 'EXAM'
+
 
 classRows = filter(lambda r: not isHeader(r) and not isExamRow(r), allRows)
 
-
-def fieldifyCRN(cell):
-    return {'CRN': int(cell.text_content())}
-
-def fieldifyDepartmentID(cell):
-    subfields = cell.text_content().split('-')
-    return {
-        'department': subfields[0], 
-        'courseNumber': subfields[1], 
-        'section': subfields[2], 
-    }
-
-def fieldifyTitle(cell):
-    rowspan = cell.get('rowspan')
-    textLines = list(cell.itertext())
-
-    if rowspan == '1' or len(textLines) == '1':
-        return {
-            'title': '\n'.join(textLines)
-        }
-    else:
-        return {
-            'title': textLines[0],
-            'notes': textLines[1:]
-        }
-
-def fieldifyUnits(cell):
-    return {'units': int(cell.text_content())}
-
-def fieldifyActivity(cell):
-    return {'activity': cell.text_content()}
-
-def fieldifyTime(cell):
-    def toMinutes(timeString):
-        hours, minutes = timeString.split(':')
-        return int(hours) * 60 + int(minutes)
-
-    rawStart, rawEnd = cell.text_content().split('-')
-    start = toMinutes(rawStart)
-    end = toMinutes(rawEnd[:-2])
-    if rawEnd[-2:] == "pm" and not (toMinutes('12:00') <= end <= toMinutes('12:59')):
-        if start < end:
-            start += (12 * 60)
-        end += (12 * 60)
-
-    return {'startTime': start, 'endTime': end}
-
-fieldifiers = []
-
-classes = [
-    {
-        key: value
-
-        for i, cell, fieldify in enumerate(zip(row.getchildren(), fieldifiers))
-        if i != COLUMNS.index('location')
-        and i != COLUMNS.index('termLength')
-        for key, value in fieldify(cell).items()
-    }
-    for row in classRows
-]
 
 def rowToClassMap(row):
     def getText(cell):
@@ -96,9 +38,44 @@ def rowToClassMap(row):
     def reject(cell):
         return None
 
+    def fieldifyDepartmentID(cell):
+        subfields = cell.text_content().split('-')
+        return {
+            'departmentCode': subfields[0],
+            'courseNumber': subfields[1],
+            'section': subfields[2],
+        }
+
+    def fieldifyTitle(cell):
+        rowspan = cell.get('rowspan')
+        textLines = list(cell.itertext())
+
+        if rowspan == '1' or len(textLines) == '1':
+            return '\n'.join(textLines)
+        else:
+            return {
+                'title': textLines[0],
+                'notes': textLines[1:]
+            }
+
     def fieldifyDays(cell):
         DAYS = 'MTWRFS'
         return [DAYS.index(day) for day in cell.text_content()]
+
+    def fieldifyTime(cell):
+        def toMinutes(timeString):
+            hours, minutes = timeString.split(':')
+            return int(hours) * 60 + int(minutes)
+
+        rawStart, rawEnd = cell.text_content().split('-')
+        start = toMinutes(rawStart)
+        end = toMinutes(rawEnd[:-2])
+        if rawEnd[-2:] == "pm" and not (toMinutes('12:00') <= end <= toMinutes('12:59')):
+            if start < end:
+                start += 12 * 60
+            end += 12 * 60
+
+        return {'startTime': start, 'endTime': end}
 
     COLUMNS_TRANSFORMS_MAP = {
         'CRN': getText,
