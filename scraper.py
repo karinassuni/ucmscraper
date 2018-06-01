@@ -2,11 +2,11 @@ import collections
 import lxml.html
 import requests
 
-def fetchSchedulePage():
+def fetchSchedulePage(validterm):
     return requests.post(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
         data={
-            'validterm': 201830,
+            'validterm': validterm,
             'subjcode': 'ALL',
             'openclasses': 'N'
         }
