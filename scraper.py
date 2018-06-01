@@ -2,7 +2,6 @@ import collections
 import lxml.html
 import requests
 
-
 def fetchSchedulePage():
     return requests.post(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
@@ -18,14 +17,12 @@ def parseSchedulePage(schedulePage):
     root = lxml.html.fromstring(schedulePage)
     allRows = root.cssselect('table.datadisplaytable > tr')
 
-    def isHeader(row):
-        return row.getchildren()[0].tag == 'th'
+    def isClassRow(row):
+        # Course title cells ALWAYS have the 'rowspan' attribute
+        TITLE_COLUMN = 2
+        return row.getchildren()[TITLE_COLUMN].get('rowspan')
 
-    def isExamRow(row):
-        ACTIVITY_COLUMN = 4
-        return row.getchildren()[ACTIVITY_COLUMN].text_content() == 'EXAM'
-
-    classRows = filter(lambda r: not isHeader(r) and not isExamRow(r), allRows)
+    classRows = filter(isClassRow, allRows)
 
     return [rowToClassMap(r) for r in classRows]
 
