@@ -33,7 +33,10 @@ def rowToClassMap(row):
         return cell.text_content()
 
     def getNumber(cell):
-        return int(cell.text_content())
+        try:
+            return int(cell.text_content())
+        except ValueError:
+            return 0
 
     def reject(cell):
         return None
