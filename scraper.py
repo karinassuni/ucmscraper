@@ -1,4 +1,5 @@
 import collections
+import itertools
 import lxml.html
 import requests
 
@@ -13,15 +14,38 @@ def fetchSchedulePage(validterm):
     ).content
 
 
-def parseSchedulePage(schedulePage):
+def extractDepartmentCodeNameMap(schedulePage):
     root = lxml.html.fromstring(schedulePage)
-    allRows = root.cssselect('table.datadisplaytable > tr')
+    tables = root.cssselect('table.datadisplaytable')
+
+    def getDepartmentCode(table):
+        FIRST_COURSE_ROW = 1
+        DEPARTMENT_ID_COLUMN = 1
+        departmentIdCell = table[FIRST_COURSE_ROW][DEPARTMENT_ID_COLUMN]
+        # Example text_content(): 'ANTH-001-01'
+        return departmentIdCell.text_content().split('-')[0]
+
+    def getDepartmentName(table):
+        # Department class table is always immediately preceded by a h3 with the
+        # department's full name
+        return table.getprevious().text_content()
+
+    return {
+        getDepartmentCode(table): getDepartmentName(table)
+        for table in tables
+    }
+
+
+def extractClassRows(schedulePage):
+    root = lxml.html.fromstring(schedulePage)
+    tables = root.cssselect('table.datadisplaytable')
 
     def isClassRow(row):
         # Course title cells ALWAYS have the 'rowspan' attribute
         TITLE_COLUMN = 2
         return row.getchildren()[TITLE_COLUMN].get('rowspan')
 
+    allRows = (row for table in tables for row in table.getchildren())
     classRows = filter(isClassRow, allRows)
 
     return [_rowToClassMap(r) for r in classRows]
