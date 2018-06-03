@@ -3,7 +3,26 @@ import itertools
 import lxml.html
 import requests
 
-def fetchSchedulePage(validterm):
+
+class Schedule:
+    def __init__(self, validterm):
+        self.html = _fetchSchedulePage(validterm)
+        self.departments = _parseDepartments(self.html)
+        self.classes = _parseClasses(self.html)
+
+
+def fetchValidterms():
+    courseSearchPage = requests.get(
+        'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.p_selectsubject'
+    ).content
+    document = lxml.html.fromstring(courseSearchPage)
+    return [
+        button.get('value')
+        for button in document.cssselect('input[name="validterm"]')
+    ]
+
+
+def _fetchSchedulePage(validterm):
     return requests.post(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
         data={
@@ -14,7 +33,7 @@ def fetchSchedulePage(validterm):
     ).content
 
 
-def extractDepartmentCodeNameMap(schedulePage):
+def _parseDepartments(schedulePage):
     root = lxml.html.fromstring(schedulePage)
     tables = root.cssselect('table.datadisplaytable')
 
@@ -36,7 +55,7 @@ def extractDepartmentCodeNameMap(schedulePage):
     }
 
 
-def extractClassRows(schedulePage):
+def _parseClasses(schedulePage):
     root = lxml.html.fromstring(schedulePage)
     tables = root.cssselect('table.datadisplaytable')
 
