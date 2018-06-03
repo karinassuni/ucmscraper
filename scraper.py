@@ -34,8 +34,8 @@ def _fetchSchedulePage(validterm):
 
 
 def _parseDepartments(schedulePage):
-    root = lxml.html.fromstring(schedulePage)
-    tables = root.cssselect('table.datadisplaytable')
+    document = lxml.html.fromstring(schedulePage)
+    tables = document.cssselect('table.datadisplaytable')
 
     def getDepartmentCode(table):
         FIRST_COURSE_ROW = 1
@@ -56,15 +56,15 @@ def _parseDepartments(schedulePage):
 
 
 def _parseClasses(schedulePage):
-    root = lxml.html.fromstring(schedulePage)
-    tables = root.cssselect('table.datadisplaytable')
+    document = lxml.html.fromstring(schedulePage)
+    tables = document.cssselect('table.datadisplaytable')
 
     def isClassRow(row):
         # Course title cells ALWAYS have the 'rowspan' attribute
         TITLE_COLUMN = 2
-        return row.getchildren()[TITLE_COLUMN].get('rowspan')
+        return row[TITLE_COLUMN].get('rowspan')
 
-    allRows = (row for table in tables for row in table.getchildren())
+    allRows = (row for table in tables for row in table)
     classRows = filter(isClassRow, allRows)
 
     return [_rowToClassMap(r) for r in classRows]
@@ -150,7 +150,7 @@ def _rowToClassMap(row):
         key: transform(cell)
 
         for cell, key, transform
-        in zip(row.getchildren(), COLUMNS_TRANSFORMS_MAP.keys(), COLUMNS_TRANSFORMS_MAP.values())
+        in zip(row, COLUMNS_TRANSFORMS_MAP.keys(), COLUMNS_TRANSFORMS_MAP.values())
         if transform is not reject
     }
 
