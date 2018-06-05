@@ -3,6 +3,11 @@ A Python module that scrapes [UC Merced class schedules][1] for you!
 
 Just create a `Schedule` object with `ucmscraper.Schedule(validterm)`, where `validterm` is a value from the eponymous radio button group found in the [UC Merced Schedule Search form][1]. Call `ucmscraper.fetchValidterms()` to get the current `validterm`s, or inspect the search page's raw source HTML.
 
+## Installation
+```
+pipenv install ucmscraper
+```
+
 ## Example usage
 ```python
 import json

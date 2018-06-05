@@ -1,8 +1,12 @@
 from setuptools import setup
 
+with open('README.md', 'r') as f:
+    long_description = f.read()
+
 setup(
     name='ucmscraper',
     description='Module for scraping UC Merced\'s class schedules',
+    long_description=long_description,
     version='1.0.0',
     author='Karina Antonio',
     author_email='karinafantonio@gmail.com',
