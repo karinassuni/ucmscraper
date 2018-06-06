@@ -26,8 +26,8 @@ with open('example/Fall_2018_Schedule.html', 'wb') as f:
     f.write(schedule.html)
 with open('example/Fall_2018_Departments.json', 'w') as f:
     json.dump(schedule.departments, f, sort_keys=True, indent=4)
-with open('example/Fall_2018_Classes.json', 'w') as f:
-    json.dump(schedule.classes, f, sort_keys=True, indent=4)
+with open('example/Fall_2018_Sections.json', 'w') as f:
+    json.dump(schedule.sections, f, sort_keys=True, indent=4)
 ```
 Check out the resulting schedule files in the [example folder](example/).
 

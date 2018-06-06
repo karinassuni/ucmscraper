@@ -8,7 +8,7 @@ class Schedule:
     def __init__(self, validterm):
         self.html = _fetchSchedulePage(validterm)
         self.departments = _parseDepartments(self.html)
-        self.classes = _parseClasses(self.html)
+        self.sections = _parseSections(self.html)
 
 
 def fetchValidterms():
@@ -55,7 +55,7 @@ def _parseDepartments(schedulePage):
     }
 
 
-def _parseClasses(schedulePage):
+def _parseSections(schedulePage):
     document = lxml.html.fromstring(schedulePage)
     tables = document.cssselect('table.datadisplaytable')
 
@@ -67,10 +67,10 @@ def _parseClasses(schedulePage):
     allRows = (row for table in tables for row in table)
     classRows = filter(isClassRow, allRows)
 
-    return [_rowToClassMap(r) for r in classRows]
+    return [_rowToSection(r) for r in classRows]
 
 
-def _rowToClassMap(row):
+def _rowToSection(row):
     def getText(cell):
         return cell.text_content()
 
@@ -146,7 +146,7 @@ def _rowToClassMap(row):
         'freeSeats': getNumber
     }
 
-    class_ = {
+    section = {
         key: transform(cell)
 
         for cell, key, transform
@@ -155,12 +155,12 @@ def _rowToClassMap(row):
     }
 
     # Flatten 1 level deep (the only level of nesting possible)
-    flatClass = {}
-    for k_out, v_out in class_.items():
+    flatSection = {}
+    for k_out, v_out in section.items():
         if isinstance(v_out, collections.MutableMapping):
             for k_in, v_in in v_out.items():
-                flatClass[k_in] = v_in
+                flatSection[k_in] = v_in
         else:
-            flatClass[k_out] = v_out
+            flatSection[k_out] = v_out
 
-    return flatClass
+    return flatSection
