@@ -5,10 +5,19 @@ import requests
 
 
 class Schedule:
-    def __init__(self, validterm):
-        self.html = _fetch_schedule_page(validterm)
+    def __init__(self, schedule_html):
+        self.html = schedule_html
         self.departments = _parse_departments(self.html)
         self.sections = _parse_sections(self.html)
+
+    @classmethod
+    def fetch(cls, validterm):
+        return cls(_fetch_schedule_page(validterm))
+
+    @classmethod
+    def fetch_latest(cls):
+        latest_validterm = fetch_validterms()[-1]
+        return cls.fetch(latest_validterm)
 
 
 def fetch_validterms():
