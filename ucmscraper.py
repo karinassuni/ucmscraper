@@ -30,7 +30,7 @@ def _fetch_schedule_page(validterm):
             'subjcode': 'ALL',
             'openclasses': 'N'
         }
-    ).content
+    ).text
 
 
 def _parse_departments(schedule_page):

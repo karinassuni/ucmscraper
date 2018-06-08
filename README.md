@@ -22,7 +22,7 @@ pathlib.Path('./example').mkdir(exist_ok=True)
 validterms = ucmscraper.fetch_validterms()
 schedule = ucmscraper.Schedule(validterms[-1]) # latest term
 
-with open('example/Fall_2018_Schedule.html', 'wb') as f:
+with open('example/Fall_2018_Schedule.html', 'w') as f:
     f.write(schedule.html)
 with open('example/Fall_2018_Departments.json', 'w') as f:
     json.dump(schedule.departments, f, sort_keys=True, indent=4)
