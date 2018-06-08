@@ -6,23 +6,23 @@ import requests
 
 class Schedule:
     def __init__(self, validterm):
-        self.html = _fetchSchedulePage(validterm)
-        self.departments = _parseDepartments(self.html)
-        self.sections = _parseSections(self.html)
+        self.html = _fetch_schedule_page(validterm)
+        self.departments = _parse_departments(self.html)
+        self.sections = _parse_sections(self.html)
 
 
-def fetchValidterms():
-    courseSearchPage = requests.get(
+def fetch_validterms():
+    course_search_page = requests.get(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.p_selectsubject'
     ).content
-    document = lxml.html.fromstring(courseSearchPage)
+    document = lxml.html.fromstring(course_search_page)
     return [
         button.get('value')
         for button in document.cssselect('input[name="validterm"]')
     ]
 
 
-def _fetchSchedulePage(validterm):
+def _fetch_schedule_page(validterm):
     return requests.post(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
         data={
@@ -33,48 +33,48 @@ def _fetchSchedulePage(validterm):
     ).content
 
 
-def _parseDepartments(schedulePage):
-    document = lxml.html.fromstring(schedulePage)
+def _parse_departments(schedule_page):
+    document = lxml.html.fromstring(schedule_page)
     tables = document.cssselect('table.datadisplaytable')
 
-    def getDepartmentCode(table):
+    def get_department_code(table):
         FIRST_COURSE_ROW = 1
         DEPARTMENT_ID_COLUMN = 1
-        departmentIdCell = table[FIRST_COURSE_ROW][DEPARTMENT_ID_COLUMN]
+        department_id_cell = table[FIRST_COURSE_ROW][DEPARTMENT_ID_COLUMN]
         # Example text_content(): 'ANTH-001-01'
-        return departmentIdCell.text_content().split('-')[0]
+        return department_id_cell.text_content().split('-')[0]
 
-    def getDepartmentName(table):
+    def get_department_name(table):
         # Department class table is always immediately preceded by a h3 with the
         # department's full name
         return table.getprevious().text_content()
 
     return {
-        getDepartmentCode(table): getDepartmentName(table)
+        get_department_code(table): get_department_name(table)
         for table in tables
     }
 
 
-def _parseSections(schedulePage):
-    document = lxml.html.fromstring(schedulePage)
+def _parse_sections(schedule_page):
+    document = lxml.html.fromstring(schedule_page)
     tables = document.cssselect('table.datadisplaytable')
 
-    def isClassRow(row):
+    def is_class_row(row):
         # Course title cells ALWAYS have the 'rowspan' attribute
         TITLE_COLUMN = 2
         return row[TITLE_COLUMN].get('rowspan')
 
-    allRows = (row for table in tables for row in table)
-    classRows = filter(isClassRow, allRows)
+    all_rows = (row for table in tables for row in table)
+    class_rows = filter(is_class_row, all_rows)
 
-    return [_rowToSection(r) for r in classRows]
+    return [_row_to_section(r) for r in class_rows]
 
 
-def _rowToSection(row):
-    def getText(cell):
+def _row_to_section(row):
+    def get_text(cell):
         return cell.text_content()
 
-    def getNumber(cell):
+    def get_number(cell):
         try:
             return int(cell.text_content())
         except ValueError:
@@ -83,7 +83,7 @@ def _rowToSection(row):
     def reject(cell):
         return None
 
-    def fieldifyDepartmentID(cell):
+    def fieldify_department_id(cell):
         subfields = cell.text_content().split('-')
         return {
             'departmentCode': subfields[0],
@@ -91,7 +91,7 @@ def _rowToSection(row):
             'section': subfields[2],
         }
 
-    def fieldifyTitle(cell):
+    def fieldify_title(cell):
         rowspan = cell.get('rowspan')
         textLines = list(cell.itertext())
 
@@ -103,7 +103,7 @@ def _rowToSection(row):
                 'notes': textLines[1:]
             }
 
-    def fieldifyDays(cell):
+    def fieldify_days(cell):
         DAYS = 'MTWRFS'
         dayText = cell.text_content()
         if dayText == '&nbsp':
@@ -111,19 +111,19 @@ def _rowToSection(row):
         else:
             return [DAYS.index(day) for day in dayText]
 
-    def fieldifyTime(cell):
-        timeText = cell.text_content()
-        if 'TBD' in timeText:
+    def fieldify_time(cell):
+        time_text = cell.text_content()
+        if 'TBD' in time_text:
             return 'TBD'
 
-        def toMinutes(timeString):
-            hours, minutes = timeString.split(':')
+        def to_minutes(time_string):
+            hours, minutes = time_string.split(':')
             return int(hours) * 60 + int(minutes)
 
-        rawStart, rawEnd = timeText.split('-')
-        start = toMinutes(rawStart)
-        end = toMinutes(rawEnd[:-2])
-        if rawEnd[-2:] == "pm" and not (toMinutes('12:00') <= end <= toMinutes('12:59')):
+        raw_start, raw_end = time_text.split('-')
+        start = to_minutes(raw_start)
+        end = to_minutes(raw_end[:-2])
+        if raw_end[-2:] == "pm" and not (to_minutes('12:00') <= end <= to_minutes('12:59')):
             if start < end:
                 start += 12 * 60
             end += 12 * 60
@@ -131,19 +131,19 @@ def _rowToSection(row):
         return {'startTime': start, 'endTime': end}
 
     COLUMNS_TRANSFORMS_MAP = {
-        'CRN': getText,
-        'departmentID': fieldifyDepartmentID,
-        'title': fieldifyTitle,
-        'units': getNumber,
-        'activity': getText,
-        'days': fieldifyDays,
-        'time': fieldifyTime,
+        'CRN': get_text,
+        'departmentID': fieldify_department_id,
+        'title': fieldify_title,
+        'units': get_number,
+        'activity': get_text,
+        'days': fieldify_days,
+        'time': fieldify_time,
         'location': reject,
         'termLength': reject,
-        'instructor': getText,
-        'maxSeats': getNumber,
-        'takenSeats': getNumber,
-        'freeSeats': getNumber
+        'instructor': get_text,
+        'maxSeats': get_number,
+        'takenSeats': get_number,
+        'freeSeats': get_number
     }
 
     section = {
@@ -155,12 +155,12 @@ def _rowToSection(row):
     }
 
     # Flatten 1 level deep (the only level of nesting possible)
-    flatSection = {}
+    flat_section = {}
     for k_out, v_out in section.items():
         if isinstance(v_out, collections.MutableMapping):
             for k_in, v_in in v_out.items():
-                flatSection[k_in] = v_in
+                flat_section[k_in] = v_in
         else:
-            flatSection[k_out] = v_out
+            flat_section[k_out] = v_out
 
-    return flatSection
+    return flat_section

@@ -19,7 +19,7 @@ pathlib.Path('./example').mkdir(exist_ok=True)
 # Fall Semester 2018
 # schedule = ucmscraper.Schedule(201830)
 
-validterms = ucmscraper.fetchValidterms()
+validterms = ucmscraper.fetch_validterms()
 schedule = ucmscraper.Schedule(validterms[-1]) # latest term
 
 with open('example/Fall_2018_Schedule.html', 'wb') as f:
