@@ -104,8 +104,15 @@ def _row_to_section(row):
         rowspan = cell.get('rowspan')
         textLines = list(cell.itertext())
 
-        if rowspan == '1' or len(textLines) == '1':
-            return '\n'.join(textLines)
+        # There are multi-line title cells with a rowspan of 1, unfortunately
+        # That includes the case where the other line is a "Must Also Register"
+        # AND includes the case where the other line is like, a subtitle, e.g.
+        # "Journal Club\nCardiovascular Tissue Engineering"
+        # if rowspan == '1' or len(textLines) == '1':
+        #     return '\n'.join(textLines)
+        # So the following is the safest:
+        if len(textLines) == '1':
+            return textLines
         else:
             return {
                 'title': textLines[0],
