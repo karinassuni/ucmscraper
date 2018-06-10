@@ -2,20 +2,26 @@
 A Python module that scrapes [UC Merced class schedules][1] for you!
 
 ## API
-Using this module just entails 1. creating a Schedule instance and 2. reading its data attributes; see below for more details.
+Using this module just entails 1. creating a Schedule instance and 2. reading
+its data attributes; see below for more details.
 
 ### `class Schedule`
 A `Schedule` instance object is a fully parsed UC Merced schedule page from a
 given term.
-`Schedule`s can created in three ways: two involve a "factory" class method, and one is a plain constructor.
+
+`Schedule`s can created in three ways: two involve a "factory" class method, and
+one is a plain constructor.
 
 #### 1. `Schedule.fetch_latest()`
-Performs an HTTP request and, if successful, returns a Schedule object for the latest term (Fall 2018 at the time of writing).
+Performs an HTTP request and, if successful, returns a Schedule object for the
+latest term (Fall 2018 at the time of writing).
 
 #### 2. `Schedule.fetch(validterm)`
-Performs an HTTP and, if successful, returns a Schedule object from the given `validterm`.
+Performs an HTTP and, if successful, returns a Schedule object from the given
+`validterm`.
 
-A `validterm` is a form value associated with the "Select a Term" radio buttons in the [official schedule search form][1].
+A `validterm` is a form value associated with the "Select a Term" radio buttons
+in the [official schedule search form][1].
 
 #### 3. `Schedule(schedule_html)`
 Parses `schedule_html` and returns a Schedule object.
@@ -24,16 +30,50 @@ Parses `schedule_html` and returns a Schedule object.
 Each Schedule object has the following data attributes:
 
 `schedule.html` - a string of the raw HTML of the original schedule page
-`schedule.departments` - a dictionary whose keys are department codes and whose values are the associated department titles, e.g.:
 
+`schedule.departments` - a dictionary whose keys are department codes and whose
+values are the associated department titles, e.g.:
+```
+{
+    'ANTH': 'Anthropology',
+    'BEST': 'Bio Engin Small Scale Tech',
+    'BIO': 'Biological Sciences',
+    'BIOE': 'Bioengineering',
+    ...
+}
+```
 
 `schedule.sections` - a list of dictionaries each representing one non-exam row
 from the schedule page, e.g.:
+```
+[
+    {
+        'CRN': '30973',
+        'departmentCode': 'MATH',
+        'courseNumber': '125',
+        'section': '03D',
+        'title': 'Intermediate Diff Eqs',
+        'notes': [],
+        'units': 0,
+        'activity': 'DISC',
+        'days': [4],
+        'startTime': 810,
+        'endTime': 860,
+        'instructor': 'Staff',
+        'maxSeats': 30,
+        'takenSeats': 9,
+        'freeSeats': 21
+    },
+    ...
+]
+```
 
 ### `ucmscraper.fetchValidterms()`
-Performs an HTTP request and, if successful returns a list of all of the current `validterm`s.
+Performs an HTTP request and, if successful returns a list of all of the current
+`validterm`s.
 
-To get a hard-coded (read: non-updating) list of `validterm`s, you can inspect the raw source HTML of [the official schedule search form][1].
+To get a hard-coded (read: non-updating) list of `validterm`s, you can inspect
+the raw source HTML of [the official schedule search form][1].
 
 
 ## Installation
