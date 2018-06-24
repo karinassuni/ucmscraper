@@ -141,7 +141,7 @@ def _row_to_section(row):
 
         def to_time_string(time):
             return '{}:{} {}'.format(
-                str(time // 60 % 12),
+                str(time // 60 % 12 or 12), # circuit to 12 if % 12 == 0
                 str(time % 60),
                 ('PM' if time >= to_minutes('12:00') else 'AM')
             )
