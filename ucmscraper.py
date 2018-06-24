@@ -120,12 +120,7 @@ def _row_to_section(row):
             }
 
     def fieldify_days(cell):
-        DAYS = 'MTWRFS'
-        dayText = cell.text_content()
-        if dayText == '&nbsp':
-            return ''
-        else:
-            return [DAYS.index(day) for day in dayText]
+        return cell.text_content()
 
     def fieldify_time(cell):
         time_text = cell.text_content()
@@ -144,7 +139,14 @@ def _row_to_section(row):
                 start += 12 * 60
             end += 12 * 60
 
-        return {'startTime': start, 'endTime': end}
+        def to_time_string(time):
+            return '{}:{} {}'.format(
+                str(time // 60 % 12),
+                str(time % 60),
+                ('PM' if time >= to_minutes('12:00') else 'AM')
+            )
+
+        return {'startTime': to_time_string(start), 'endTime': to_time_string(end)}
 
     COLUMNS_TRANSFORMS_MAP = {
         'CRN': get_text,
