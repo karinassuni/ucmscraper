@@ -125,7 +125,7 @@ def _row_to_section(row):
     def fieldify_time(cell):
         time_text = cell.text_content()
         if 'TBD' in time_text:
-            return 'TBD'
+            return {'startTime': 'TDB', 'endTime': 'TDB'}
 
         def to_minutes(time_string):
             hours, minutes = time_string.split(':')
