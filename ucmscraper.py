@@ -101,14 +101,13 @@ def _row_to_section(row):
         }
 
     def fieldify_title(cell):
-        rowspan = cell.get('rowspan')
         textLines = list(cell.itertext())
 
         # There are multi-line title cells with a rowspan of 1, unfortunately
         # That includes the case where the other line is a "Must Also Register"
         # AND includes the case where the other line is like, a subtitle, e.g.
         # "Journal Club\nCardiovascular Tissue Engineering"
-        # if rowspan == '1' or len(textLines) == '1':
+        # if cell.get('rowspan') == '1' or len(textLines) == '1':
         #     return '\n'.join(textLines)
         # So the following is the safest:
         if len(textLines) == '1':
@@ -142,7 +141,7 @@ def _row_to_section(row):
         def to_time_string(time):
             return '{}:{} {}'.format(
                 str(time // 60 % 12 or 12), # circuit to 12 if % 12 == 0
-                str(time % 60),
+                str(time % 60 or '00'), # circuit to '00' if % 60 == 0
                 ('PM' if time >= to_minutes('12:00') else 'AM')
             )
 
