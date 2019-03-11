@@ -93,7 +93,7 @@ def _parse_sections(schedule_page):
 def _extract_courses(sections):
     # tuple for hashability, namedtuple for convenience
     Course = collections.namedtuple('Course',
-        ('departmentCode', 'courseNumber', 'title', 'units','notes'))
+        ('department_code', 'course_number', 'title', 'units', 'notes'))
 
     def coursify(section):
         return Course._make([section[f] for f in Course._fields])
@@ -121,8 +121,8 @@ def _row_to_section(row):
     def fieldify_department_id(cell):
         subfields = cell.text_content().split('-')
         return {
-            'departmentCode': subfields[0],
-            'courseNumber': subfields[1],
+            'department_code': subfields[0],
+            'course_number': subfields[1],
             'section': subfields[2],
         }
 
@@ -150,7 +150,7 @@ def _row_to_section(row):
     def fieldify_time(cell):
         time_text = cell.text_content()
         if 'TBD' in time_text:
-            return {'startTime': 'TDB', 'endTime': 'TDB'}
+            return {'start_time': 'TDB', 'end_time': 'TDB'}
 
         def to_minutes(time_string):
             hours, minutes = time_string.split(':')
@@ -171,22 +171,22 @@ def _row_to_section(row):
                 ('PM' if time >= to_minutes('12:00') else 'AM')
             )
 
-        return {'startTime': to_time_string(start), 'endTime': to_time_string(end)}
+        return {'start_time': to_time_string(start), 'end_time': to_time_string(end)}
 
     COLUMN_TRANSFORM_PAIRS = (
         ('CRN', get_number),
-        ('departmentID', fieldify_department_id),
+        ('department_id', fieldify_department_id),
         ('title', fieldify_title),
         ('units', get_number),
         ('activity', get_text),
         ('days', fieldify_days),
         ('time', fieldify_time),
         ('location', get_text),
-        ('termLength', reject),
+        ('term_length', reject),
         ('instructor', get_text),
-        ('maxSeats', get_number),
-        ('takenSeats', get_number),
-        ('freeSeats', get_number)
+        ('max_seats', get_number),
+        ('taken_seats', get_number),
+        ('free_seats', get_number)
     )
 
     def slice_pairs(pairs):
