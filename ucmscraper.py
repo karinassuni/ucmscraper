@@ -1,7 +1,11 @@
 import collections
 import itertools
+import logging
 import lxml.html
 import requests
+
+
+logger = logging.getLogger(__name__)
 
 
 class Schedule:
@@ -76,7 +80,13 @@ def _parse_sections(schedule_page):
     all_rows = (row for table in tables for row in table)
     class_rows = filter(is_class_row, all_rows)
 
-    return [_row_to_section(r) for r in class_rows]
+    sections = []
+    for r in class_rows:
+        try:
+            sections.append(_row_to_section(r))
+        except Exception:
+            logger.exception('Could not parse:\n%s', lxml.html.tostring(r))
+    return sections
 
 
 def _row_to_section(row):
@@ -147,27 +157,31 @@ def _row_to_section(row):
 
         return {'startTime': to_time_string(start), 'endTime': to_time_string(end)}
 
-    COLUMNS_TRANSFORMS_MAP = {
-        'CRN': get_text,
-        'departmentID': fieldify_department_id,
-        'title': fieldify_title,
-        'units': get_number,
-        'activity': get_text,
-        'days': fieldify_days,
-        'time': fieldify_time,
-        'location': reject,
-        'termLength': reject,
-        'instructor': get_text,
-        'maxSeats': get_number,
-        'takenSeats': get_number,
-        'freeSeats': get_number
-    }
+    COLUMN_TRANSFORM_PAIRS = (
+        ('CRN', get_number),
+        ('departmentID', fieldify_department_id),
+        ('title', fieldify_title),
+        ('units', get_number),
+        ('activity', get_text),
+        ('days', fieldify_days),
+        ('time', fieldify_time),
+        ('location', get_text),
+        ('termLength', reject),
+        ('instructor', get_text),
+        ('maxSeats', get_number),
+        ('takenSeats', get_number),
+        ('freeSeats', get_number)
+    )
+
+    def slice_pairs(pairs):
+        # transpose, as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
+        return zip(*pairs)
 
     section = {
         key: transform(cell)
 
         for cell, key, transform
-        in zip(row, COLUMNS_TRANSFORMS_MAP.keys(), COLUMNS_TRANSFORMS_MAP.values())
+        in zip(row, *slice_pairs(COLUMN_TRANSFORM_PAIRS))
         if transform is not reject
     }
 

@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 lxml = "*"
 requests = "*"
+cssselect = "*"
 
 [dev-packages]
 "autopep8" = "*"
