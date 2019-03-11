@@ -13,6 +13,7 @@ class Schedule:
         self.html = schedule_html
         self.departments = _parse_departments(self.html)
         self.sections = _parse_sections(self.html)
+        self.courses = _extract_courses(self.sections)
 
     @classmethod
     def fetch(cls, validterm):
@@ -87,6 +88,21 @@ def _parse_sections(schedule_page):
         except Exception:
             logger.exception('Could not parse:\n%s', lxml.html.tostring(r))
     return sections
+
+
+def _extract_courses(sections):
+    # tuple for hashability, namedtuple for convenience
+    Course = collections.namedtuple('Course',
+        ('departmentCode', 'courseNumber', 'title', 'units','notes'))
+
+    def coursify(section):
+        return Course._make([section[f] for f in Course._fields])
+
+    # set guarantees uniqueness
+    return {
+        coursify(s)
+        for s in sections
+    }
 
 
 def _row_to_section(row):
