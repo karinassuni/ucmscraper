@@ -125,7 +125,7 @@ def _row_to_section(row):
         else:
             return {
                 'title': textLines[0],
-                'notes': textLines[1:]
+                'notes': ''.join(textLines[1:])
             }
 
     def fieldify_days(cell):
