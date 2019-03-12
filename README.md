@@ -48,7 +48,8 @@ values are the associated department titles, e.g.:
 {
     Course(
         department_code='ANTH',
-        course_number='001',
+        number='001',
+        title='Sociocultural Anthropology'
         units=4,
         notes=('Must Also Register for a Corresponding Discussion')
     ),
@@ -64,7 +65,7 @@ non-exam row from the schedule page, e.g.:
         CRN=30250,
         department_code='ANTH',
         course_number='001',
-        section='01',
+        number='01',
         activity='LECT',
         days='MW',
         start_time='1:30 PM',

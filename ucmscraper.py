@@ -99,17 +99,20 @@ def _parse_sections(schedule_page):
         del s['notes']
     Section = collections.namedtuple('Section', sections[0].keys())
     def sectionify(s):
-        return Section._make([s[f] for f in Section._fields])
+        return Section(*[s[f] for f in Section._fields])
 
     return [sectionify(s) for s in sections], courses
 
 
 def _extract_courses(sections):
     Course = collections.namedtuple('Course',
-        ('department_code', 'course_number', 'title', 'units', 'notes'))
+        ('department_code', 'number', 'title', 'units', 'notes')) # note that it's 'number', not 'course_number' as it is in sections
 
     def coursify(section):
-        return Course._make([section[f] for f in Course._fields])
+        # convert 'course_number' to 'number'
+        values = [section[f] for f in Course._fields if f != 'number']
+        values.insert(Course._fields.index('number'), section['course_number'])
+        return Course(*values)
 
     # set guarantees uniqueness--our tuple is immutable so it's hashable so it
     # can go into a set
@@ -137,7 +140,7 @@ def _row_to_section(row):
         return {
             'department_code': subfields[0],
             'course_number': subfields[1],
-            'section': subfields[2],
+            'number': subfields[2],
         }
 
     def fieldify_title(cell):
