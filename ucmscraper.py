@@ -207,16 +207,16 @@ def _row_to_section(row):
         # as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
         return zip(*pairs)
 
-    section = {
-        key: transform(cell)
+    section = collections.OrderedDict([
+        (key, transform(cell))
 
         for cell, key, transform
         in zip(row, *transpose(COLUMN_TRANSFORMS))
         if transform is not reject
-    }
+    ])
 
     # make new dict with dict-value fields merged in
-    flat_section = {}
+    flat_section = collections.OrderedDict()
     for k_out, v_out in section.items():
         if isinstance(v_out, collections.MutableMapping):
             for k_in, v_in in v_out.items():
