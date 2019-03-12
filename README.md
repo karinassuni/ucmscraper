@@ -43,27 +43,38 @@ values are the associated department titles, e.g.:
 }
 ```
 
-`schedule.sections` - a list of dictionaries each representing one non-exam row
-from the schedule page, e.g.:
+`schedule.courses` - a set of `Course` [namedtuples](2), e.g.
+```
+{
+    Course(
+        department_code='ANTH',
+        course_number='001',
+        units=4,
+        notes=('Must Also Register for a Corresponding Discussion')
+    ),
+    ...
+}
+```
+
+`schedule.sections` - a list of `Section` [namedtuples](2) each representing one
+non-exam row from the schedule page, e.g.:
 ```
 [
-    {
-        'CRN': '30973',
-        'departmentCode': 'MATH',
-        'courseNumber': '125',
-        'section': '03D',
-        'title': 'Intermediate Diff Eqs',
-        'notes': [],
-        'units': 0,
-        'activity': 'DISC',
-        'days': [4],
-        'startTime': 810,
-        'endTime': 860,
-        'instructor': 'Staff',
-        'maxSeats': 30,
-        'takenSeats': 9,
-        'freeSeats': 21
-    },
+    Section(
+        CRN=30250,
+        department_code='ANTH',
+        course_number='001',
+        section='01',
+        activity='LECT',
+        days='MW',
+        start_time='1:30 PM',
+        end_time='2:45 PM',
+        location='ACS 120',
+        instructor='DeLugan, Robin',
+        max_seats=210,
+        free_seats=210,
+        taken_seats=0
+    ),
     ...
 ]
 ```
@@ -84,7 +95,7 @@ pipenv install ucmscraper
 ## Example usage
 ```python
 import json
-import pathlib # Python 3.5+; for pre3.5 Python, import pathlib2
+import pathlib
 import ucmscraper
 
 pathlib.Path('./example').mkdir(exist_ok=True)
@@ -106,3 +117,4 @@ with open('example/Fall_2018_Sections.json', 'w') as f:
 Check out the resulting schedule files in the [example folder](example/).
 
 [1]: https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.p_selectsubject
+[2]: https://docs.python.org/3.5/library/collections.html#collections.namedtuple

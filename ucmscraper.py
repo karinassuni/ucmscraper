@@ -12,8 +12,7 @@ class Schedule:
     def __init__(self, schedule_html):
         self.html = schedule_html
         self.departments = _parse_departments(self.html)
-        self.sections = _parse_sections(self.html)
-        self.courses = _extract_courses(self.sections)
+        self.sections, self.courses = _parse_sections(self.html)
 
     @classmethod
     def fetch(cls, validterm):
@@ -81,25 +80,39 @@ def _parse_sections(schedule_page):
     all_rows = (row for table in tables for row in table)
     class_rows = filter(is_class_row, all_rows)
 
+    # Convert rows to section dicts
     sections = []
     for r in class_rows:
         try:
-            sections.append(_row_to_section(r))
+            s = _row_to_section(r)
         except Exception:
             logger.exception('Could not parse:\n%s', lxml.html.tostring(r))
-    return sections
+        else:
+            sections.append(s)
+
+    # Extract courses and drop course-only fields from sections
+    courses = _extract_courses(sections)
+    for s in sections:
+        # keep only department_code and course_number
+        del s['title']
+        del s['units']
+        del s['notes']
+    Section = collections.namedtuple('Section', sections[0].keys())
+    def sectionify(s):
+        return Section._make([s[f] for f in Section._fields])
+
+    return [sectionify(s) for s in sections], courses
 
 
 def _extract_courses(sections):
-    # tuple for hashability, namedtuple for convenience
     Course = collections.namedtuple('Course',
         ('department_code', 'course_number', 'title', 'units', 'notes'))
 
     def coursify(section):
-        s = section._asdict()
-        return Course._make([s[f] for f in Course._fields])
+        return Course._make([section[f] for f in Course._fields])
 
-    # set guarantees uniqueness
+    # set guarantees uniqueness--our tuple is immutable so it's hashable so it
+    # can go into a set
     return {
         coursify(s)
         for s in sections
@@ -208,5 +221,4 @@ def _row_to_section(row):
         else:
             flat_section[k_out] = v_out
 
-    Section = collections.namedtuple('Section', flat_section.keys())
-    return Section(*flat_section.values())
+    return flat_section
