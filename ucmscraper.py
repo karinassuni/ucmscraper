@@ -96,7 +96,8 @@ def _extract_courses(sections):
         ('department_code', 'course_number', 'title', 'units', 'notes'))
 
     def coursify(section):
-        return Course._make([section[f] for f in Course._fields])
+        s = section._asdict()
+        return Course._make([s[f] for f in Course._fields])
 
     # set guarantees uniqueness
     return {
@@ -141,11 +142,8 @@ def _row_to_section(row):
         else:
             return {
                 'title': textLines[0],
-                'notes': ''.join(textLines[1:])
+                'notes': tuple(textLines[1:])
             }
-
-    def fieldify_days(cell):
-        return cell.text_content()
 
     def fieldify_time(cell):
         time_text = cell.text_content()
@@ -173,13 +171,13 @@ def _row_to_section(row):
 
         return {'start_time': to_time_string(start), 'end_time': to_time_string(end)}
 
-    COLUMN_TRANSFORM_PAIRS = (
+    COLUMN_TRANSFORMS = (
         ('CRN', get_number),
         ('department_id', fieldify_department_id),
         ('title', fieldify_title),
         ('units', get_number),
         ('activity', get_text),
-        ('days', fieldify_days),
+        ('days', get_text),
         ('time', fieldify_time),
         ('location', get_text),
         ('term_length', reject),
@@ -189,19 +187,19 @@ def _row_to_section(row):
         ('free_seats', get_number)
     )
 
-    def slice_pairs(pairs):
-        # transpose, as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
+    def transpose(pairs):
+        # as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
         return zip(*pairs)
 
     section = {
         key: transform(cell)
 
         for cell, key, transform
-        in zip(row, *slice_pairs(COLUMN_TRANSFORM_PAIRS))
+        in zip(row, *transpose(COLUMN_TRANSFORMS))
         if transform is not reject
     }
 
-    # Flatten 1 level deep (the only level of nesting possible)
+    # make new dict with dict-value fields merged in
     flat_section = {}
     for k_out, v_out in section.items():
         if isinstance(v_out, collections.MutableMapping):
@@ -210,4 +208,5 @@ def _row_to_section(row):
         else:
             flat_section[k_out] = v_out
 
-    return flat_section
+    Section = collections.namedtuple('Section', flat_section.keys())
+    return Section(*flat_section.values())
