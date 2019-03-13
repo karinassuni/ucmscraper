@@ -9,47 +9,69 @@ logger = logging.getLogger(__name__)
 
 
 class Schedule:
-    def __init__(self, schedule_html):
+    def __init__(self, schedule_html, term):
         self.html = schedule_html
-        self.departments = _parse_departments(self.html)
-        self.sections, self.courses = _parse_sections(self.html)
-
+        self.term = term
+        self.departments, self.courses, self.sections = _parse_tables(self.html)
+    
     @classmethod
-    def fetch(cls, validterm):
-        return cls(_fetch_schedule_page(validterm))
+    def fetch(cls, term):
+        return cls(_fetch_schedule_page(term.code), term)
 
     @classmethod
     def fetch_latest(cls):
-        latest_validterm = fetch_validterms()[-1]
-        return cls.fetch(latest_validterm)
+        def get_last_value(ordered_dict):
+            return next(reversed(ordered_dict.values()))
+        return cls.fetch(get_last_value(get_terms()))
 
 
-def fetch_validterms():
+def get_terms():
+    if get_terms.terms is None:
+        get_terms.terms = _fetch_terms()
+    return get_terms.terms
+get_terms.terms = None
+
+
+def _fetch_terms():
     course_search_page = requests.get(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.p_selectsubject'
     ).content
     document = lxml.html.fromstring(course_search_page)
-    return [
-        button.get('value')
+
+    """
+    In the schedule search form, each term line is a <tr>, e.g.:
+    <tr>
+        <td class="pldefault">
+            <input type="radio" name="validterm" value="201930" checked="">
+        </td>
+        <td class="pldefault">Fall Semester 2019</td>
+    </tr>
+    """
+    Term = namedtuple('Term', ['code', 'name'])
+    def code(button):
+        return button.get('value')
+
+    return OrderedDict([
+        (
+            code(button),
+            Term(code(button), button.getparent().getnext().text_content())
+        )
         for button in document.cssselect('input[name="validterm"]')
-    ]
+    ])
 
 
-def _fetch_schedule_page(validterm):
+def _fetch_schedule_page(code):
     return requests.post(
         'https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.P_ViewSchedule',
         data={
-            'validterm': validterm,
+            'validterm': code,
             'subjcode': 'ALL',
             'openclasses': 'N'
         }
     ).text
 
 
-def _parse_departments(schedule_page):
-    document = lxml.html.fromstring(schedule_page)
-    tables = document.cssselect('table.datadisplaytable')
-
+def _parse_departments(tables):
     def get_department_code(table):
         FIRST_COURSE_ROW = 1
         DEPARTMENT_ID_COLUMN = 1
@@ -62,17 +84,19 @@ def _parse_departments(schedule_page):
         # department's full name
         return table.getprevious().text_content()
 
-    return {
-        get_department_code(table): get_department_name(table)
+    return OrderedDict([
+        (get_department_code(table), get_department_name(table))
         for table in tables
-    }
+    ])
 
 
-def _parse_sections(schedule_page):
+def _parse_tables(schedule_page):
     document = lxml.html.fromstring(schedule_page)
     tables = document.cssselect('table.datadisplaytable')
 
-    def is_class_row(row):
+    departments = _parse_departments(tables)
+
+    def is_class_row(row): # as opposed to an EXAM row
         # Course title cells ALWAYS have the 'rowspan' attribute
         TITLE_COLUMN = 2
         return row[TITLE_COLUMN].get('rowspan')
@@ -100,7 +124,7 @@ def _parse_sections(schedule_page):
     def sectionify(s):
         return Section(*[s[f] for f in Section._fields])
 
-    return tuple([sectionify(s) for s in sections]), courses
+    return departments, courses, tuple([sectionify(s) for s in sections])
 
 
 def _extract_courses(sections):
@@ -223,7 +247,7 @@ def _row_to_section(row):
     )
 
     def transpose(pairs):
-        # as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
+        # Per https://stackoverflow.com/a/12974504
         return zip(*pairs)
 
     section = OrderedDict([

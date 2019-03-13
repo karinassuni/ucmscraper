@@ -1,0 +1,2864 @@
+[
+    {
+        "department_code": "ANTH",
+        "number": "001",
+        "title": "Sociocultural Anthropology",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "005",
+        "title": "Biological Anthropology",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "100",
+        "title": "History of Anthropology",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "121",
+        "title": "Ethnomedicine",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "132",
+        "title": "Archaeological Interpretation",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "149",
+        "title": "Topics in Anth Archaeology",
+        "units": 4
+    },
+    {
+        "department_code": "ANTH",
+        "number": "172",
+        "title": "Ethnohistory",
+        "units": 4
+    },
+    {
+        "department_code": "BEST",
+        "number": "211",
+        "title": "Synthetic Biology",
+        "units": 4
+    },
+    {
+        "department_code": "BEST",
+        "number": "214",
+        "title": "Tissue Engineering",
+        "units": 4
+    },
+    {
+        "department_code": "BEST",
+        "number": "221",
+        "title": "Mech. Behavior of Materials",
+        "units": 4
+    },
+    {
+        "department_code": "BEST",
+        "number": "231",
+        "title": "Imaging Spectroscopy Bio Sci",
+        "units": 3
+    },
+    {
+        "department_code": "BEST",
+        "number": "291",
+        "title": "Research Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "BEST",
+        "number": "292",
+        "title": "Group Meeting",
+        "units": 1
+    },
+    {
+        "department_code": "BEST",
+        "number": "293",
+        "title": "Journal Club\nCardiovascular Tissue Engineering",
+        "units": 1
+    },
+    {
+        "department_code": "BEST",
+        "number": "293",
+        "title": "Journal Club",
+        "units": 1
+    },
+    {
+        "department_code": "BEST",
+        "number": "294",
+        "title": "Responsible Conduct Research",
+        "units": 1
+    },
+    {
+        "department_code": "BIO",
+        "number": "001",
+        "title": "Contemporary Biology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "001L",
+        "title": "Contemporary Biology Lab",
+        "units": 1
+    },
+    {
+        "department_code": "BIO",
+        "number": "002",
+        "title": "Introduction Molecular Biology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "002L",
+        "title": "Molecular Biology Lab",
+        "units": 1
+    },
+    {
+        "department_code": "BIO",
+        "number": "003",
+        "title": "Molec Basis of Heal and Disea",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "018",
+        "title": "Stat Sci Data Analysis",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "043",
+        "title": "Biodiversity and Conservation",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "047",
+        "title": "Astrobiology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "060",
+        "title": "Nutrition",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "101",
+        "title": "Biochemistry I",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "110",
+        "title": "The Cell",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "111",
+        "title": "Cells, Tissues and Organs",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "113",
+        "title": "Sustainable Anthropocene",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "120L",
+        "title": "General Micro Lab",
+        "units": 3
+    },
+    {
+        "department_code": "BIO",
+        "number": "121",
+        "title": "Ecological Microbiology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "124",
+        "title": "Microbial Evolution",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "127",
+        "title": "General Virology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "140",
+        "title": "Genetics",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "141",
+        "title": "Evolution",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "148",
+        "title": "Fundamentals of Ecology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "151",
+        "title": "Molecular Immunology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "151L",
+        "title": "Molec Immunology Lab",
+        "units": 1
+    },
+    {
+        "department_code": "BIO",
+        "number": "152",
+        "title": "Cancer Genetics and Tumor Bio",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "153",
+        "title": "Evolution and Development",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "161",
+        "title": "Human Physiology",
+        "units": 5
+    },
+    {
+        "department_code": "BIO",
+        "number": "170",
+        "title": "Neurobiology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "170L",
+        "title": "Neurobiology Laboratory",
+        "units": 1
+    },
+    {
+        "department_code": "BIO",
+        "number": "172",
+        "title": "Sustainability Ag Ecosystems",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "174",
+        "title": "Stable Isotope Ecology",
+        "units": 4
+    },
+    {
+        "department_code": "BIO",
+        "number": "180",
+        "title": "Math Modeling for Biology",
+        "units": 4
+    },
+    {
+        "department_code": "BIOE",
+        "number": "021",
+        "title": "Computing for Bioengineers",
+        "units": 4
+    },
+    {
+        "department_code": "BIOE",
+        "number": "060",
+        "title": "Signals and Systems for Bioeng",
+        "units": 3
+    },
+    {
+        "department_code": "BIOE",
+        "number": "065",
+        "title": "Biocircuits Theory",
+        "units": 3
+    },
+    {
+        "department_code": "BIOE",
+        "number": "104",
+        "title": "Biotransport Phenomena",
+        "units": 4
+    },
+    {
+        "department_code": "BIOE",
+        "number": "124",
+        "title": "Intro Biomed Imag",
+        "units": 3
+    },
+    {
+        "department_code": "BIOE",
+        "number": "130",
+        "title": "Biothermodynamics",
+        "units": 4
+    },
+    {
+        "department_code": "BIOE",
+        "number": "140",
+        "title": "Biomolecular Engineering",
+        "units": 4
+    },
+    {
+        "department_code": "CCST",
+        "number": "060",
+        "title": "Intro to Chicano/a Culture",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "001",
+        "title": "Preparatory Chemistry",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "002",
+        "title": "General Chemistry I",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "002H",
+        "title": "Honors Gen Chem I",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "008",
+        "title": "Prin of Organic Chem",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "008H",
+        "title": "Honors Organic Chemistry",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "008HL",
+        "title": "Hon Prin of Org Chem Lab",
+        "units": 1
+    },
+    {
+        "department_code": "CHEM",
+        "number": "008L",
+        "title": "Prin of Org Chem Lab",
+        "units": 1
+    },
+    {
+        "department_code": "CHEM",
+        "number": "010",
+        "title": "General Chemistry II",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "100",
+        "title": "Organic Synth and Mechanism",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "100L",
+        "title": "Organic Chemistry Laboratory",
+        "units": 1
+    },
+    {
+        "department_code": "CHEM",
+        "number": "101L",
+        "title": "Advanced Synthetic Laboratory",
+        "units": 2
+    },
+    {
+        "department_code": "CHEM",
+        "number": "111",
+        "title": "Biochemistry I",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "112",
+        "title": "Quantum Chem and Spect",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "115",
+        "title": "Instrumental Analysis",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "120",
+        "title": "Inorganic Chemistry",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "155",
+        "title": "Instrumental Lab",
+        "units": 2
+    },
+    {
+        "department_code": "CHEM",
+        "number": "160",
+        "title": "Scientific Computing for Chem",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "181",
+        "title": "Intro to Molecular Dynamics",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "200",
+        "title": "Adv Organic Synthesis",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "212",
+        "title": "Molec & Solid State Quant Chem",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "214",
+        "title": "Statistical Thermodynamics",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "260",
+        "title": "Intro to Scientific Computing",
+        "units": 3
+    },
+    {
+        "department_code": "CHEM",
+        "number": "281",
+        "title": "Molecular Dynamics",
+        "units": 4
+    },
+    {
+        "department_code": "CHEM",
+        "number": "291",
+        "title": "Physics and Chemistry Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "CHEM",
+        "number": "298",
+        "title": "Directed Group Study",
+        "units": 2
+    },
+    {
+        "department_code": "CHEM",
+        "number": "298",
+        "title": "Directed Group Study\nMathematical And Numerical Methods In Physical Chemistry",
+        "units": 1
+    },
+    {
+        "department_code": "CHN",
+        "number": "001",
+        "title": "Elementary Chinese I",
+        "units": 4
+    },
+    {
+        "department_code": "CHN",
+        "number": "002",
+        "title": "Elementary Chinese II",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "001",
+        "title": "Intro to Cognitive Science",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "101",
+        "title": "Mind, Brain, & Computation",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "125",
+        "title": "Intro to Artificial Intell",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "160",
+        "title": "Free Will",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "182",
+        "title": "Service Science",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "201",
+        "title": "CogSci Foundations I",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "250",
+        "title": "Cognitive Science Grad Seminar",
+        "units": 4
+    },
+    {
+        "department_code": "COGS",
+        "number": "279",
+        "title": "Cognitive Science of Religion",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "001",
+        "title": "Intro Crit Race & Ethn Studies",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "101",
+        "title": "Race and the Media",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "110",
+        "title": "Methods in CRES",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "123",
+        "title": "US Comparative Race Ethnicity",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "124BR",
+        "title": "AfAmer Hist 1877-Pres:Research",
+        "units": 4
+    },
+    {
+        "department_code": "CRES",
+        "number": "159",
+        "title": "History of Iran",
+        "units": 4
+    },
+    {
+        "department_code": "CRS",
+        "number": "010",
+        "title": "Community Engaged Research",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "005",
+        "title": "Intro Computer Applications",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "015",
+        "title": "Discrete Mathematics",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "020",
+        "title": "Introduction to Computing I",
+        "units": 2
+    },
+    {
+        "department_code": "CSE",
+        "number": "021",
+        "title": "Introduction to Computing II",
+        "units": 2
+    },
+    {
+        "department_code": "CSE",
+        "number": "030",
+        "title": "Data Structures",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "031",
+        "title": "Computer Organization",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "100",
+        "title": "Algorithm Design and Analysis",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "111",
+        "title": "Database Systems",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "120",
+        "title": "Software Engineering",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "140",
+        "title": "Computer Architecture",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "150",
+        "title": "Operating Systems",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "165",
+        "title": "Intro to Object Orient Program",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "170",
+        "title": "Computer Graphics",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "175",
+        "title": "Intro to Artificial Intell",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "176",
+        "title": "Intro Machine Learning",
+        "units": 4
+    },
+    {
+        "department_code": "CSE",
+        "number": "178",
+        "title": "Computers & Networks Security",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "001",
+        "title": "Introduction to Economics",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "005",
+        "title": "Intro to Business & Finance",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "006A",
+        "title": "Financial Accounting I",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "006B",
+        "title": "Financial Accounting II",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "007",
+        "title": "Managerial Accounting",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "010",
+        "title": "Statistical Inference",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "100",
+        "title": "Interm Microeconomic Theory",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "101",
+        "title": "Interm Macroecon Theory",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "105",
+        "title": "Corporate Finance",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "108",
+        "title": "Marketing & Consumer Behavior",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "110",
+        "title": "Econometrics",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "126",
+        "title": "Econ of Innov and Entrepren",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "142",
+        "title": "Econ of Gender and Pov",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "145",
+        "title": "Health Economics",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "149",
+        "title": "Economics of Sports",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "151",
+        "title": "Econ of Govt and Business",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "155",
+        "title": "Political Economics",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "158",
+        "title": "Economics of Regulation",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "164",
+        "title": "Economics of Emerging Markets",
+        "units": 4
+    },
+    {
+        "department_code": "ECON",
+        "number": "172",
+        "title": "Experimental Economics",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "245",
+        "title": "Parallel Computing",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "260",
+        "title": "Optimization",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "272",
+        "title": "Program Verif & Model Checking",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "278",
+        "title": "Advanced Algorithms",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "280",
+        "title": "Computer Networks & Dist. Syst",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "286",
+        "title": "Adv Top in Computer Vision",
+        "units": 4
+    },
+    {
+        "department_code": "EECS",
+        "number": "290",
+        "title": "EECS Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "ENG",
+        "number": "010",
+        "title": "Foundations of Lit Studies",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "012",
+        "title": "Intro to Theatre & Performance",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "032",
+        "title": "Intro to Chicano/a Culture",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "057",
+        "title": "Introduction to Poetry",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "062",
+        "title": "Literature and Gender",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "103",
+        "title": "Brit & American Lit 1830-1940",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "115",
+        "title": "Chicano/a Literature",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "117",
+        "title": "Literature of California",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "129",
+        "title": "Literature & Queer Studies",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "155",
+        "title": "Morrison and Baldwin",
+        "units": 4
+    },
+    {
+        "department_code": "ENG",
+        "number": "190",
+        "title": "Senior Thesis\nTheater & Community",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "045",
+        "title": "Introduction to Materials",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "057",
+        "title": "Statics and Dynamics",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "065",
+        "title": "Circuit Theory",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "097",
+        "title": "Engr Service Learning",
+        "units": 0
+    },
+    {
+        "department_code": "ENGR",
+        "number": "097",
+        "title": "Unmanned Aerial Systems",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "097",
+        "title": "Project Protect",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "097",
+        "title": "LEED Lab",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "097",
+        "title": "Get Set",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "120",
+        "title": "Fluid Mechanics",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "130",
+        "title": "Thermodynamics",
+        "units": 3
+    },
+    {
+        "department_code": "ENGR",
+        "number": "135",
+        "title": "Heat Transfer",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "140",
+        "title": "Intro to Object Orient Program",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "151",
+        "title": "Strength of Materials",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "155",
+        "title": "Engineering Economic Analysis",
+        "units": 3
+    },
+    {
+        "department_code": "ENGR",
+        "number": "170",
+        "title": "Intro to Electron Micro",
+        "units": 3
+    },
+    {
+        "department_code": "ENGR",
+        "number": "170L",
+        "title": "Intro to Electron Micro Lab",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "180",
+        "title": "Spatial Analysis and Modeling",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "190",
+        "title": "Capstone Design",
+        "units": 4
+    },
+    {
+        "department_code": "ENGR",
+        "number": "191",
+        "title": "Professional Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "193",
+        "title": "Engineering Capstone Design I",
+        "units": 2
+    },
+    {
+        "department_code": "ENGR",
+        "number": "197",
+        "title": "Engr Service Learning",
+        "units": 0
+    },
+    {
+        "department_code": "ENGR",
+        "number": "197",
+        "title": "Unmanned Aerial Systems",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "197",
+        "title": "Project Protect",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "197",
+        "title": "LEED Lab",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "197",
+        "title": "Get Set",
+        "units": 1
+    },
+    {
+        "department_code": "ENGR",
+        "number": "270",
+        "title": "Intro to Electron Microscopy",
+        "units": 3
+    },
+    {
+        "department_code": "ENGR",
+        "number": "270L",
+        "title": "Intro to Electron Micro Lab",
+        "units": 1
+    },
+    {
+        "department_code": "ENVE",
+        "number": "010",
+        "title": "Environment in Crisis",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "020",
+        "title": "Intro to Environ Sci and Tech",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "030",
+        "title": "Evaluating Sustainable Spaces",
+        "units": 3
+    },
+    {
+        "department_code": "ENVE",
+        "number": "110",
+        "title": "Hydrology and Climate",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "130",
+        "title": "Meteorology and Air Pollution",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "146",
+        "title": "Hydraulic Systems Design",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "164",
+        "title": "Energy Policy",
+        "units": 4
+    },
+    {
+        "department_code": "ENVE",
+        "number": "183",
+        "title": "Field Meth in Subsurface Hydro",
+        "units": 2
+    },
+    {
+        "department_code": "ENVE",
+        "number": "184",
+        "title": "Field Meth in Environ Chem",
+        "units": 2
+    },
+    {
+        "department_code": "ES",
+        "number": "200",
+        "title": "Environmental Systems",
+        "units": 3
+    },
+    {
+        "department_code": "ES",
+        "number": "222",
+        "title": "Organic Matter",
+        "units": 3
+    },
+    {
+        "department_code": "ES",
+        "number": "234",
+        "title": "Air Pollution and Resources",
+        "units": 3
+    },
+    {
+        "department_code": "ES",
+        "number": "245",
+        "title": "Biogeography",
+        "units": 3
+    },
+    {
+        "department_code": "ES",
+        "number": "256",
+        "title": "Ecological Dynamics",
+        "units": 4
+    },
+    {
+        "department_code": "ES",
+        "number": "264",
+        "title": "Energy Policy",
+        "units": 4
+    },
+    {
+        "department_code": "ES",
+        "number": "274",
+        "title": "Stable Isotope Ecology",
+        "units": 4
+    },
+    {
+        "department_code": "ES",
+        "number": "280",
+        "title": "Natural Treatment Systems",
+        "units": 3
+    },
+    {
+        "department_code": "ES",
+        "number": "291",
+        "title": "Environmental Systems Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "ESS",
+        "number": "001",
+        "title": "Intro to Earth Sys Sci",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "002",
+        "title": "Sustainability Science",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "043",
+        "title": "Biodiversity and Conservation",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "047",
+        "title": "Astrobiology",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "100",
+        "title": "Enviro Chem in Nat Sci",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "110",
+        "title": "Hydrology and Climate",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "113",
+        "title": "Sustainable Anthropocene",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "120",
+        "title": "Ecological Microbiology",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "124",
+        "title": "Terrestrial Ecosystem Ecology",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "148",
+        "title": "Fundamentals of Ecology",
+        "units": 4
+    },
+    {
+        "department_code": "ESS",
+        "number": "190",
+        "title": "Undergraduate Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "FRE",
+        "number": "001",
+        "title": "Elementary French I",
+        "units": 4
+    },
+    {
+        "department_code": "FRE",
+        "number": "002",
+        "title": "Elementary French II",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "002",
+        "title": "Introduction to Music Studies",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "003",
+        "title": "Introduction to Visual Culture",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "006",
+        "title": "Global Art History",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "010",
+        "title": "Drawing I",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "011",
+        "title": "Painting I",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "012A",
+        "title": "Sculpture I",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "014",
+        "title": "Photography I",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "020",
+        "title": "Video I",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "030A",
+        "title": "Latin Music Ensemble",
+        "units": 2
+    },
+    {
+        "department_code": "GASP",
+        "number": "030C",
+        "title": "Swing Band",
+        "units": 2
+    },
+    {
+        "department_code": "GASP",
+        "number": "031A",
+        "title": "Latin Dance Ensemble",
+        "units": 2
+    },
+    {
+        "department_code": "GASP",
+        "number": "031C",
+        "title": "Swing Dance Ensemble",
+        "units": 2
+    },
+    {
+        "department_code": "GASP",
+        "number": "034A",
+        "title": "Songwriting",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "036A",
+        "title": "Making Electronic Music",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "041A",
+        "title": "Performative Storytelling",
+        "units": 2
+    },
+    {
+        "department_code": "GASP",
+        "number": "055A",
+        "title": "Arts of Asia",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "076A",
+        "title": "Social Dance",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "079B",
+        "title": "Topics in Dance",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "080A",
+        "title": "Intro to Theatre & Performance",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "109",
+        "title": "Image and Sound",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "115A",
+        "title": "Multimedia II",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "120",
+        "title": "Video II",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "144A",
+        "title": "Art for Social Change",
+        "units": 4
+    },
+    {
+        "department_code": "GASP",
+        "number": "190",
+        "title": "Theories of Expressive Culture",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "008",
+        "title": "African Civilization",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "051",
+        "title": "History of Things",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "055A",
+        "title": "Arts of Asia",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "070",
+        "title": "Middle East to 1500",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "100",
+        "title": "The Historian's Craft",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "108",
+        "title": "Urban East Asia",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "115",
+        "title": "Topics in African History",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "123",
+        "title": "US Comparative Race Ethnicity",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "124BR",
+        "title": "AfAmer Hist 1877-Pres:Research",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "142",
+        "title": "Latin American Revolutions",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "159",
+        "title": "History of Iran",
+        "units": 4
+    },
+    {
+        "department_code": "HIST",
+        "number": "179",
+        "title": "Early Modern Europe",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "201A",
+        "title": "Theories and Methods A",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "203",
+        "title": "Pedagogy",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "205",
+        "title": "Humanities in the World",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "206",
+        "title": "Methods and Research",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "210",
+        "title": "Readings in IH: Past Worlds\nDeath & Violence In Prehistory",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "210",
+        "title": "Readings in IH: Past Worlds\nReadings In The Digital Humanities",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "220",
+        "title": "Readings in IH: Social/Spatial\nIslam & Gender",
+        "units": 4
+    },
+    {
+        "department_code": "IH",
+        "number": "230",
+        "title": "Reading: Expressive/Imaginativ",
+        "units": 4
+    },
+    {
+        "department_code": "JPN",
+        "number": "001",
+        "title": "Elementary Japanese I",
+        "units": 4
+    },
+    {
+        "department_code": "JPN",
+        "number": "003",
+        "title": "Intermediate Japanese I",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "005",
+        "title": "Preparatory Calculus",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "011",
+        "title": "Calculus I",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "012",
+        "title": "Calculus II",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "015",
+        "title": "Intro. Sci. Data Analysis",
+        "units": 2
+    },
+    {
+        "department_code": "MATH",
+        "number": "021",
+        "title": "Calc I Phys Sciences & Eng",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "022",
+        "title": "Calc II Phys Sciences & Eng",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "023",
+        "title": "Vector Calculus",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "024",
+        "title": "Lin Alg & Diff Eqs",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "032",
+        "title": "Probability and Statistics",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "122",
+        "title": "Complex Variables",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "125",
+        "title": "Intermediate Diff Eqs",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "130",
+        "title": "Numerical Analysis",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "131",
+        "title": "Numerical Methods Sci & Engr",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "180",
+        "title": "Modern Applied Statistics",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "201",
+        "title": "Teaching and Learning",
+        "units": 1
+    },
+    {
+        "department_code": "MATH",
+        "number": "221",
+        "title": "Advanced ODEs",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "231",
+        "title": "Numerical Analysis I",
+        "units": 4
+    },
+    {
+        "department_code": "MATH",
+        "number": "291",
+        "title": "Applied Mathematics Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "MATH",
+        "number": "292",
+        "title": "Special Topics",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "021",
+        "title": "Engineering Computing",
+        "units": 4
+    },
+    {
+        "department_code": "ME",
+        "number": "120",
+        "title": "Component Design",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "136",
+        "title": "Aerodynamics",
+        "units": 4
+    },
+    {
+        "department_code": "ME",
+        "number": "137",
+        "title": "Computer Aided Engineering",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "140",
+        "title": "Vibration and Control",
+        "units": 4
+    },
+    {
+        "department_code": "ME",
+        "number": "143",
+        "title": "Unmanned Aircraft Systems",
+        "units": 4
+    },
+    {
+        "department_code": "ME",
+        "number": "190",
+        "title": "Tribology",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "190",
+        "title": "Fuel Cells and Batteries",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "254",
+        "title": "Computational Fluid Dynamics",
+        "units": 4
+    },
+    {
+        "department_code": "ME",
+        "number": "262",
+        "title": "Fuel Cell Fund Mod Diagnost",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "290",
+        "title": "Surface Science & Engineering",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "290",
+        "title": "Robust and Optimal Controls",
+        "units": 3
+    },
+    {
+        "department_code": "ME",
+        "number": "291",
+        "title": "ME Seminar Series",
+        "units": 1
+    },
+    {
+        "department_code": "MGMT",
+        "number": "124",
+        "title": "Org Behavior and Leadership",
+        "units": 4
+    },
+    {
+        "department_code": "MGMT",
+        "number": "135",
+        "title": "Business Law",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "130",
+        "title": "Data Analysis and Optimization",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "135",
+        "title": "Tech Comm and Vis Skills",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "201",
+        "title": "Leadership and Organizations",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "202",
+        "title": "Managerial Finance & Acctg",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "203",
+        "title": "Quantitative Tools for Mgmt",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "204",
+        "title": "Spatial Analytics",
+        "units": 4
+    },
+    {
+        "department_code": "MIST",
+        "number": "231",
+        "title": "Organizational Behavior",
+        "units": 3
+    },
+    {
+        "department_code": "MIST",
+        "number": "251",
+        "title": "MIST Speaker Series",
+        "units": 1
+    },
+    {
+        "department_code": "MIST",
+        "number": "252",
+        "title": "Foundations I",
+        "units": 4
+    },
+    {
+        "department_code": "MSE",
+        "number": "109",
+        "title": "Materials Thermodynamics",
+        "units": 4
+    },
+    {
+        "department_code": "MSE",
+        "number": "110",
+        "title": "Solid State Materials Prop",
+        "units": 4
+    },
+    {
+        "department_code": "MSE",
+        "number": "111",
+        "title": "Kinetics and Processing",
+        "units": 4
+    },
+    {
+        "department_code": "MSE",
+        "number": "118",
+        "title": "Intro Nanotech and Nanoscience",
+        "units": 3
+    },
+    {
+        "department_code": "NSED",
+        "number": "100",
+        "title": "Project Based Instruction",
+        "units": 4
+    },
+    {
+        "department_code": "NSED",
+        "number": "120",
+        "title": "Classroom Interactions",
+        "units": 4
+    },
+    {
+        "department_code": "NSED",
+        "number": "130",
+        "title": "Technology in Education",
+        "units": 3
+    },
+    {
+        "department_code": "NSED",
+        "number": "150",
+        "title": "Research Methods in Education",
+        "units": 4
+    },
+    {
+        "department_code": "NSED",
+        "number": "174",
+        "title": "Issues in Teaching w/Fldwk",
+        "units": 1
+    },
+    {
+        "department_code": "PH",
+        "number": "001",
+        "title": "Introduction to Public Health",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "005",
+        "title": "Global Health",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "100",
+        "title": "Introduction to Epidemiology",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "102",
+        "title": "Health Promotion",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "103",
+        "title": "Health Communication",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "105",
+        "title": "Intro to US Health Care",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "110",
+        "title": "Environmental Health",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "111",
+        "title": "Social Epidemiology",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "112",
+        "title": "Research Methods Public Health",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "135",
+        "title": "Public Health Genetics",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "181",
+        "title": "Public Health Research",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "190",
+        "title": "Health Policy",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "201",
+        "title": "Foundations of Public Health",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "203",
+        "title": "Research Methods",
+        "units": 4
+    },
+    {
+        "department_code": "PH",
+        "number": "210",
+        "title": "Intro Public Health Analysis",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "001",
+        "title": "Introduction to Philosophy",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "002",
+        "title": "Introduction to Ethics",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "003",
+        "title": "Contemporary Moral Problems",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "005",
+        "title": "Introduction to Logic",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "101",
+        "title": "Metaphysics",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "108",
+        "title": "Political Philosophy",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "134",
+        "title": "Modern Philosophy",
+        "units": 4
+    },
+    {
+        "department_code": "PHIL",
+        "number": "138",
+        "title": "Topics in 20th C Analytic Phil",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "008",
+        "title": "Introductory Physics I",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "008H",
+        "title": "Honors Physics I",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "009",
+        "title": "Introductory Physics II",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "010",
+        "title": "Introductory Physics III",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "018",
+        "title": "Physics I - Bio",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "019",
+        "title": "Physics II -- Bio",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "108",
+        "title": "Thermal Physics Core",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "110",
+        "title": "Electrodynamics Core",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "137",
+        "title": "Quantum Mechanics Core",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "141",
+        "title": "Condensed Matter Physics",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "192",
+        "title": "Topics in 21st Century Physics",
+        "units": 3
+    },
+    {
+        "department_code": "PHYS",
+        "number": "196",
+        "title": "Undergraduate Thesis",
+        "units": 2
+    },
+    {
+        "department_code": "PHYS",
+        "number": "205",
+        "title": "Classical Mechanics",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "210",
+        "title": "Electrodynamics I",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "231",
+        "title": "Imaging Spectroscopy Bio Sci",
+        "units": 3
+    },
+    {
+        "department_code": "PHYS",
+        "number": "241",
+        "title": "Condensed Matter Physics",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "251",
+        "title": "Intro to Graduate Research",
+        "units": 1
+    },
+    {
+        "department_code": "PHYS",
+        "number": "292",
+        "title": "Topics in 21st Century Physics",
+        "units": 4
+    },
+    {
+        "department_code": "PHYS",
+        "number": "293",
+        "title": "Physics Colloquium",
+        "units": 1
+    },
+    {
+        "department_code": "POLI",
+        "number": "001",
+        "title": "Intro to American Politics",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "003",
+        "title": "Intro to Comparative Politics",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "005",
+        "title": "Intro to International Relatns",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "006",
+        "title": "Global Issues",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "010",
+        "title": "Understanding Poli Controversy",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "120",
+        "title": "Voting, Campaigns, & Elections",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "123",
+        "title": "Political Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "135",
+        "title": "Poli Behavior Around the World",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "140",
+        "title": "Transitions to Democracy",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "145",
+        "title": "Political Violence",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "155",
+        "title": "Intl Political Economy",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "172",
+        "title": "Games and Human Behavior",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "190",
+        "title": "Topics in Political Science",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "190",
+        "title": "Public Policy",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "200",
+        "title": "Research Design Political Sci",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "210",
+        "title": "Quant Analysis Poli Data, I",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "219",
+        "title": "Spec Topic in Political Method",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "220",
+        "title": "American Political Institution",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "240",
+        "title": "Political Economy",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "269",
+        "title": "Spec Topic in Poli Cog & Behav",
+        "units": 4
+    },
+    {
+        "department_code": "POLI",
+        "number": "293",
+        "title": "Assessment of Research",
+        "units": 2
+    },
+    {
+        "department_code": "PSY",
+        "number": "001",
+        "title": "Introduction to Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "010",
+        "title": "Analysis of Psychological Data",
+        "units": 5
+    },
+    {
+        "department_code": "PSY",
+        "number": "015",
+        "title": "Research Methods in Psych",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "120",
+        "title": "Health Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "123",
+        "title": "Alcohol, Drugs, and Behavior",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "125",
+        "title": "Cognition, Affect, and Health",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "130",
+        "title": "Developmental Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "136",
+        "title": "Cognitive Development",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "142",
+        "title": "Abnormal Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "143",
+        "title": "Abnormal Child Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "145",
+        "title": "Human Sexuality",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "151",
+        "title": "Psy of Stereotype and Prejudic",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "156",
+        "title": "Social Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "158",
+        "title": "Positive Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "159",
+        "title": "Personality Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "170",
+        "title": "Industrial & Org Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "171",
+        "title": "Psychological Tests",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "180",
+        "title": "Physiological Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "181",
+        "title": "Clinical Neuropsychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "182",
+        "title": "Evolutionary Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "190",
+        "title": "Topics in Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "200A",
+        "title": "Professional Seminar",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "202A",
+        "title": "Adv Psych Statistics I",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "203",
+        "title": "Multilevel Modeling",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "204",
+        "title": "Research Design & Methodology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "210",
+        "title": "Item Response Theory",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "221",
+        "title": "Issues in Health Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "230",
+        "title": "Dev Psych I",
+        "units": 4
+    },
+    {
+        "department_code": "PSY",
+        "number": "290",
+        "title": "Grant Writing I",
+        "units": 4
+    },
+    {
+        "department_code": "QSB",
+        "number": "200",
+        "title": "Molecular Cell Biology",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "245",
+        "title": "Biogeography",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "247",
+        "title": "Phyl Comp Methods",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "248",
+        "title": "Advanced Topics in EcoEvo",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "282",
+        "title": "Bioinformatics",
+        "units": 5
+    },
+    {
+        "department_code": "QSB",
+        "number": "290",
+        "title": "Topics in Systems Biology",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "290",
+        "title": "Grad Professional Development",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "291",
+        "title": "QSB Seminar Series",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "292",
+        "title": "QSB Group Meeting",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "293",
+        "title": "QSB Journal Club",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "294",
+        "title": "Respon Conduct of Research",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "296",
+        "title": "Prof Skills Development",
+        "units": 3
+    },
+    {
+        "department_code": "QSB",
+        "number": "298",
+        "title": "Directed Group Study\nImmunology Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "298",
+        "title": "Directed Group Study",
+        "units": 1
+    },
+    {
+        "department_code": "QSB",
+        "number": "298",
+        "title": "Neurobiology Seminar",
+        "units": 1
+    },
+    {
+        "department_code": "SOC",
+        "number": "001",
+        "title": "Introduction to Sociology",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "009",
+        "title": "Comm Mobilization and Politics",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "010",
+        "title": "Statistics for Sociology",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "015",
+        "title": "Sociological Research Methods",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "030",
+        "title": "Social Inequality",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "038",
+        "title": "Sociology of Race and Racism",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "100",
+        "title": "Sociological Theory",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "118",
+        "title": "Hate Crime",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "145",
+        "title": "Sociology of Health",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "150",
+        "title": "Self and Society",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "160",
+        "title": "Gender and Society",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "180",
+        "title": "Advanced Race & Ethnicity",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "182",
+        "title": "Immigration",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "185",
+        "title": "Terrorism and Genocide",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "200",
+        "title": "Sociological Theory",
+        "units": 4
+    },
+    {
+        "department_code": "SOC",
+        "number": "201",
+        "title": "Professionalization Seminar",
+        "units": 2
+    },
+    {
+        "department_code": "SOC",
+        "number": "280",
+        "title": "Race and Ethnicity",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "001",
+        "title": "Elementary Spanish I",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "002",
+        "title": "Elementary Spanish II",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "003",
+        "title": "Intermediate Spanish I",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "004",
+        "title": "Intermediate Spanish II",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "010",
+        "title": "Span for Heritage Speakers I",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "011",
+        "title": "Span for Heritage Speakers II",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "050",
+        "title": "Intro. to Hispanic Lit.",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "060",
+        "title": "Intro to Chicano/a Culture",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "103",
+        "title": "Span Comp and Conv",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "105",
+        "title": "Hispanic Cultures I",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "107",
+        "title": "Span for Health Professionals",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "115",
+        "title": "Chicano/a Literature",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "123",
+        "title": "Spanish 20-21C",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "143",
+        "title": "Latin Am Lit since Indep",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "170",
+        "title": "Spanish Linguistics",
+        "units": 4
+    },
+    {
+        "department_code": "SPAN",
+        "number": "181",
+        "title": "Topics in Literature & Culture",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Crochet & Hyperbolic Geometry",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Measuring our Physical World",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Renewable Energy Facts & Appl",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Engineering and Society",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Global Grand Challenges",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Archaeology in Popular Culture",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Computers and Education",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Power of Teams and Groups",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Exploring Leadership",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "Weird Math & Human Behavior",
+        "units": 4
+    },
+    {
+        "department_code": "SPRK",
+        "number": "001",
+        "title": "National Parks and Landscapes",
+        "units": 4
+    },
+    {
+        "department_code": "USTU",
+        "number": "010",
+        "title": "Intro to Undergraduate Studies",
+        "units": 1
+    },
+    {
+        "department_code": "WH",
+        "number": "002",
+        "title": "Intro to Digital Heritage",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "001",
+        "title": "Academic Writing",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "010",
+        "title": "College Reading & Composition",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "025",
+        "title": "Intro to Creative Writing",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "030",
+        "title": "Intro to Professional Writing",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "100",
+        "title": "Advanced Writing",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "101",
+        "title": "Writing Discipline: Psychology",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "105",
+        "title": "Grammar and Style",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "112",
+        "title": "Writing in the Arts",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "114",
+        "title": "Environmental Writing",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "116",
+        "title": "Science Writing in Natural Sci",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "117",
+        "title": "Writing for Soc Sci and Human",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "118",
+        "title": "Management Communication",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "119",
+        "title": "Writing for Engineering",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "120",
+        "title": "Rhetorical Theory",
+        "units": 4
+    },
+    {
+        "department_code": "WRI",
+        "number": "131A",
+        "title": "Journal Prod: Edit & Tech Wri",
+        "units": 2
+    },
+    {
+        "department_code": "WRI",
+        "number": "131B",
+        "title": "Journal Production:Vernal Pool",
+        "units": 2
+    },
+    {
+        "department_code": "WRI",
+        "number": "131C",
+        "title": "Undergraduate Research Journal",
+        "units": 2
+    }
+]

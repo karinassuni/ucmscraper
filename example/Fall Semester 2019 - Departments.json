@@ -28,7 +28,6 @@
     "MIST": "Mgmt of Innov, Sust, and Tech",
     "MSE": "Materials Science & Engr",
     "NSED": "Natural Sciences Education",
-    "NSUS": "Nat Sciences Undergrad Studies",
     "PH": "Public Health",
     "PHIL": "Philosophy",
     "PHYS": "Physics",
@@ -38,6 +37,7 @@
     "SOC": "Sociology",
     "SPAN": "Spanish",
     "SPRK": "Spark",
+    "USTU": "Undergraduate Studies",
     "WH": "World Heritage",
     "WRI": "Writing"
 }
