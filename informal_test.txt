@@ -1,0 +1,39 @@
+In [1]: import ucmscraper
+
+In [2]: schedule = ucmscraper.Schedule.fetch_latest()
+
+In [3]: count1 = {(c.department_code, c.number, c.title): 0 for c in schedule.courses}
+
+In [4]: for c in schedule.courses:
+   ...:     count1[(c.department_code, c.number, c.title)] += 1
+   ...:
+
+In [5]: anomalies = [(k, v) for k, v in count1.items() if v > 1]
+
+In [6]: len(anomalies)
+Out[6]: 0
+
+In [7]: anomalies
+Out[7]: []
+
+In [8]: count2 = {(c.department_code, c.number): 0 for c in schedule.courses}
+
+In [9]: for c in schedule.courses:
+   ...:     count2[(c.department_code, c.number)] += 1
+   ...:
+
+In [10]: almost_anomalies = [(k, v) for k, v in count2.items() if v > 1]
+
+In [11]: almost_anomalies
+Out[11]:
+[(('ME', '290'), 2),
+ (('ENGR', '197'), 5),
+ (('POLI', '190'), 2),
+ (('SPRK', '001'), 12),
+ (('CHEM', '298'), 2),
+ (('BEST', '293'), 2),
+ (('QSB', '298'), 3),
+ (('ENGR', '097'), 5),
+ (('IH', '210'), 2),
+ (('USTU', '010'), 4),
+ (('ME', '190'), 2)]

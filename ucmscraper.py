@@ -1,4 +1,4 @@
-import collections
+from collections import namedtuple, OrderedDict, MutableMapping
 import itertools
 import logging
 import lxml.html
@@ -90,23 +90,23 @@ def _parse_sections(schedule_page):
         else:
             sections.append(s)
 
-    # Extract courses and drop course-only fields from sections
+    # Extract courses before sections are purged of Course-only fields
     courses = _extract_courses(sections)
+
     for s in sections:
-        # keep only department_code and course_number
-        del s['title']
+        # keep only department_code, course_number, and title (foreign keys on Courses)
         del s['units']
-        del s['notes']
-    Section = collections.namedtuple('Section', sections[0].keys())
+    Section = namedtuple('Section', sections[0].keys())
     def sectionify(s):
         return Section(*[s[f] for f in Section._fields])
 
-    return [sectionify(s) for s in sections], courses
+    return tuple([sectionify(s) for s in sections]), courses
 
 
 def _extract_courses(sections):
-    Course = collections.namedtuple('Course',
-        ('department_code', 'number', 'title', 'units', 'notes')) # note that it's 'number', not 'course_number' as it is in sections
+    # department_code, number, and title make up the composite primary key
+    Course = namedtuple('Course',
+        ('department_code', 'number', 'title', 'units')) # note that it's 'number', not 'course_number' as it is in sections
 
     def coursify(section):
         # convert 'course_number' to 'number'
@@ -114,12 +114,19 @@ def _extract_courses(sections):
         values.insert(Course._fields.index('number'), section['course_number'])
         return Course(*values)
 
-    # set guarantees uniqueness--our tuple is immutable so it's hashable so it
-    # can go into a set
-    return {
-        coursify(s)
+    # use OrderedDict instead of set to guarantee order and, by  exploiting the
+    # uniqueness of keys in dicts, to guarantee course uniqueness
+    courses_as_keys = OrderedDict([
+        (coursify(s), None) # courses stored as keys for aforementioned behavior; associated value does not matter
         for s in sections
-    }
+        # Do not make courses out of unitless sections (which would otherwise
+        # get their own course in this set because the 0-units would make a
+        # unique identity) UNLESS the unitless section is a main (i.e.
+        # not supplementary DISC or LAB) section
+        if s['units'] > 0 or s['activity'] not in ('DISC', 'LAB')
+    ])
+
+    return tuple(courses_as_keys.keys())
 
 
 def _row_to_section(row):
@@ -137,11 +144,11 @@ def _row_to_section(row):
 
     def fieldify_department_id(cell):
         subfields = cell.text_content().split('-')
-        return {
-            'department_code': subfields[0],
-            'course_number': subfields[1],
-            'number': subfields[2],
-        }
+        return OrderedDict([
+            ('department_code', subfields[0]),
+            ('course_number', subfields[1]),
+            ('number', subfields[2])
+        ])
 
     def fieldify_title(cell):
         textLines = list(cell.itertext())
@@ -153,18 +160,30 @@ def _row_to_section(row):
         # if cell.get('rowspan') == '1' or len(textLines) == '1':
         #     return '\n'.join(textLines)
         # So the following is the safest:
-        if len(textLines) == '1':
-            return textLines
-        else:
+        if len(textLines) == 1:
             return {
                 'title': textLines[0],
-                'notes': tuple(textLines[1:])
+                'notes': tuple()
             }
+        else:
+            result = {
+                'title': textLines[0],
+                'notes': [s.title() for s in textLines[1:]]
+            }
+
+            # Distinguish sub-title from note info
+            if not result['notes'][0].startswith(('Must ', 'Class ')):
+                result['title'] += '\n' + result['notes'][0]
+                result['notes'].pop(0)
+
+            result['notes'] = tuple(result['notes'])
+            return result
+
 
     def fieldify_time(cell):
         time_text = cell.text_content()
         if 'TBD' in time_text:
-            return {'start_time': 'TDB', 'end_time': 'TDB'}
+            return OrderedDict([('start_time', 'TBD'), ('end_time', 'TBD')])
 
         def to_minutes(time_string):
             hours, minutes = time_string.split(':')
@@ -185,7 +204,7 @@ def _row_to_section(row):
                 ('PM' if time >= to_minutes('12:00') else 'AM')
             )
 
-        return {'start_time': to_time_string(start), 'end_time': to_time_string(end)}
+        return OrderedDict([('start_time', to_time_string(start)), ('end_time', to_time_string(end))])
 
     COLUMN_TRANSFORMS = (
         ('CRN', get_number),
@@ -207,7 +226,7 @@ def _row_to_section(row):
         # as per https://stackoverflow.com/questions/12974474/how-to-unzip-a-list-of-tuples-into-individual-lists
         return zip(*pairs)
 
-    section = collections.OrderedDict([
+    section = OrderedDict([
         (key, transform(cell))
 
         for cell, key, transform
@@ -216,12 +235,12 @@ def _row_to_section(row):
     ])
 
     # make new dict with dict-value fields merged in
-    flat_section = collections.OrderedDict()
-    for k_out, v_out in section.items():
-        if isinstance(v_out, collections.MutableMapping):
-            for k_in, v_in in v_out.items():
+    flat_section = OrderedDict()
+    for k, v in section.items():
+        if isinstance(v, MutableMapping):
+            for k_in, v_in in v.items():
                 flat_section[k_in] = v_in
         else:
-            flat_section[k_out] = v_out
+            flat_section[k] = v
 
     return flat_section
