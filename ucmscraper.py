@@ -9,6 +9,26 @@ logger = logging.getLogger(__name__)
 
 
 class Schedule:
+    Term = namedtuple('Term', ['code', 'name'])
+    Course = namedtuple('Course', ('department_code', 'number', 'title', 'units'))
+    Section = namedtuple('Section', [
+        'CRN',
+        'department_code',
+        'course_number',
+        'number',
+        'title',
+        'notes',
+        'activity',
+        'days',
+        'start_time',
+        'end_time',
+        'location',
+        'instructor',
+        'max_seats',
+        'taken_seats',
+        'free_seats'
+    ])
+
     def __init__(self, schedule_html, term):
         self.html = schedule_html
         self.term = term
@@ -47,14 +67,13 @@ def _fetch_terms():
         <td class="pldefault">Fall Semester 2019</td>
     </tr>
     """
-    Term = namedtuple('Term', ['code', 'name'])
     def code(button):
         return button.get('value')
 
     return OrderedDict([
         (
             code(button),
-            Term(code(button), button.getparent().getnext().text_content())
+            Schedule.Term(code(button), button.getparent().getnext().text_content())
         )
         for button in document.cssselect('input[name="validterm"]')
     ])
@@ -120,23 +139,19 @@ def _parse_tables(schedule_page):
     for s in sections:
         # keep only department_code, course_number, and title (foreign keys on Courses)
         del s['units']
-    Section = namedtuple('Section', sections[0].keys())
     def sectionify(s):
-        return Section(*[s[f] for f in Section._fields])
+        return Schedule.Section(*[s[f] for f in Schedule.Section._fields])
 
     return departments, courses, tuple([sectionify(s) for s in sections])
 
 
 def _extract_courses(sections):
-    # department_code, number, and title make up the composite primary key
-    Course = namedtuple('Course',
-        ('department_code', 'number', 'title', 'units')) # note that it's 'number', not 'course_number' as it is in sections
-
     def coursify(section):
         # convert 'course_number' to 'number'
-        values = [section[f] for f in Course._fields if f != 'number']
-        values.insert(Course._fields.index('number'), section['course_number'])
-        return Course(*values)
+        fields = Schedule.Course._fields
+        values = [section[f] for f in fields if f != 'number']
+        values.insert(fields.index('number'), section['course_number'])
+        return Schedule.Course(*values)
 
     # use OrderedDict instead of set to guarantee order and, by  exploiting the
     # uniqueness of keys in dicts, to guarantee course uniqueness
