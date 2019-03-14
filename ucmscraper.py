@@ -156,8 +156,8 @@ def _extract_courses(sections):
         # Do not make courses out of unitless sections (which would otherwise
         # get their own course in this set because the 0-units would make a
         # unique identity) UNLESS the unitless section is a main (i.e.
-        # not supplementary DISC or LAB) section
-        if s['units'] > 0 or s['activity'] not in ('DISC', 'LAB')
+        # not supplementary like DISC or LAB) section
+        if s['units'] > 0 or s['activity'] not in ('DISC', 'LAB', 'FLDW')
     ])
 
     return tuple(courses_as_keys.keys())
