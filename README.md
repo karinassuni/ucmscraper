@@ -115,24 +115,19 @@ on the schedule page, e.g.:
 ```
 
 ### `ucmscraper.get_current_terms()`
-When first called, performs an HTTP request and if successful, returns an
-an [OrderedDict][2] of terms currently available for viewing via the
-[official schedule search form][1]. Keys are `validterm` strings and values are
-`Term` objects. Keys follow the same order as in the official schedule search
-form.
+When first called, performs an HTTP request and if successful, returns a tuple
+of terms currently available for viewing via the [official schedule search form][1].
+Terms are represented by `Term` objects. Keys follow the same order as in the
+official schedule search form.
 
 Example return value:
 ```
-OrderedDict([('201910', Term(code='201910', name='Spring Semester 2019')),
-             ('201920',
-              Term(code='201920', name='Summer Semester 2019 - All Courses')),
-             ('201920 - S6',
-              Term(code='201920 - S6', name='Summer Semester 2019 - First 6-week Summer Session A')),
-             ('201920 - S62',
-              Term(code='201920 - S62', name='Summer Semester 2019 - Second 6-week Summer Session C')),
-             ('201920 - S8',
-              Term(code='201920 - S8', name='Summer Semester 2019 - 8-week Summer Session B')),
-             ('201930', Term(code='201930', name='Fall Semester 2019'))])
+(Term(code='201910', name='Spring Semester 2019'),
+ Term(code='201920', name='Summer Semester 2019 - All Courses'),
+ Term(code='201920 - S6', name='Summer Semester 2019 - First 6-week Summer Session A'),
+ Term(code='201920 - S62', name='Summer Semester 2019 - Second 6-week Summer Session C'),
+ Term(code='201920 - S8', name='Summer Semester 2019 - 8-week Summer Session B'),
+ Term(code='201930', name='Fall Semester 2019'))
 ```
 
 Note: old terms no longer on the official schedule search form have their access

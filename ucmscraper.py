@@ -40,9 +40,7 @@ class Schedule:
 
     @classmethod
     def fetch_latest(cls):
-        def get_last_value(ordered_dict):
-            return next(reversed(ordered_dict.values()))
-        return cls.fetch(get_last_value(get_current_terms()))
+        return cls.fetch(get_current_terms()[-1])
 
 
 def get_current_terms():
@@ -70,11 +68,8 @@ def _fetch_terms():
     def code(button):
         return button.get('value')
 
-    return OrderedDict([
-        (
-            code(button),
-            Schedule.Term(code(button), button.getparent().getnext().text_content())
-        )
+    return tuple([
+        Schedule.Term(code(button), button.getparent().getnext().text_content())
         for button in document.cssselect('input[name="validterm"]')
     ])
 
