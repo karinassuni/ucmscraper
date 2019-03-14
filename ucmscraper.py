@@ -197,7 +197,7 @@ def _row_to_section(row):
         if len(textLines) == 1:
             return {
                 'title': textLines[0],
-                'notes': tuple()
+                'notes': ''
             }
         else:
             result = {
@@ -206,11 +206,11 @@ def _row_to_section(row):
             }
 
             # Distinguish sub-title from note info
-            if not result['notes'][0].startswith(('Must ', 'Class ')):
+            if not result['notes'][0].startswith(('Must ', 'Class ', 'Includes ')):
                 result['title'] += '\n' + result['notes'][0]
                 result['notes'].pop(0)
 
-            result['notes'] = tuple(result['notes'])
+            result['notes'] = '\n'.join(result['notes'])
             return result
 
 
