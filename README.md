@@ -24,7 +24,8 @@ latest term (Fall 2019 at the time of writing).
 
 #### 2. `ucmscraper.Schedule.fetch(term)`
 Performs an HTTP request and, if successful, returns a Schedule object for the
-given `Term` object. `Term`s should be retrieved via `ucmscraper.get_terms()`.
+given `Term` object. `Term`s should be retrieved via
+`ucmscraper.get_current_terms()`.
 
 #### 3. `ucmscraper.Schedule(schedule_html)`
 Parses `schedule_html` and returns a Schedule object.
@@ -113,12 +114,26 @@ on the schedule page, e.g.:
 )
 ```
 
-### `ucmscraper.get_terms()`
+### `ucmscraper.get_current_terms()`
 When first called, performs an HTTP request and if successful, returns an
 an [OrderedDict][2] of terms currently available for viewing via the
 [official schedule search form][1]. Keys are `validterm` strings and values are
 `Term` objects. Keys follow the same order as in the official schedule search
 form.
+
+Example return value:
+```
+OrderedDict([('201910', Term(code='201910', name='Spring Semester 2019')),
+             ('201920',
+              Term(code='201920', name='Summer Semester 2019 - All Courses')),
+             ('201920 - S6',
+              Term(code='201920 - S6', name='Summer Semester 2019 - First 6-week Summer Session A')),
+             ('201920 - S62',
+              Term(code='201920 - S62', name='Summer Semester 2019 - Second 6-week Summer Session C')),
+             ('201920 - S8',
+              Term(code='201920 - S8', name='Summer Semester 2019 - 8-week Summer Session B')),
+             ('201930', Term(code='201930', name='Fall Semester 2019'))])
+```
 
 Note: old terms no longer on the official schedule search form have their access
 restricted, so this module cannot retrieve them. I may maintain schedule pages
@@ -151,7 +166,7 @@ pathlib.Path('./example').mkdir(exist_ok=True)
 def get_last_value(ordered_dict):
     return next(reversed(ordered_dict.values()))
 
-latest_term = get_last_value(ucmscraper.get_terms())
+latest_term = get_last_value(ucmscraper.get_current_terms())
 try:
     with open('example/{}.html'.format(latest_term.name), 'r') as f:
         schedule_html = f.read()

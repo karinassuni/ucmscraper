@@ -22,14 +22,14 @@ class Schedule:
     def fetch_latest(cls):
         def get_last_value(ordered_dict):
             return next(reversed(ordered_dict.values()))
-        return cls.fetch(get_last_value(get_terms()))
+        return cls.fetch(get_last_value(get_current_terms()))
 
 
-def get_terms():
-    if get_terms.terms is None:
-        get_terms.terms = _fetch_terms()
-    return get_terms.terms
-get_terms.terms = None
+def get_current_terms():
+    if get_current_terms.terms is None:
+        get_current_terms.terms = _fetch_terms()
+    return get_current_terms.terms
+get_current_terms.terms = None
 
 
 def _fetch_terms():
