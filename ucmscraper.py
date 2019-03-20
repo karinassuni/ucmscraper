@@ -185,7 +185,7 @@ def _row_to_section(row):
         ])
 
     def fieldify_title(cell):
-        textLines = list(cell.itertext())
+        text_lines = [s.title() for s in cell.itertext()] # note the normalization via s.title()
 
         # There are multi-line title cells with a rowspan of 1, unfortunately
         # That includes the case where the other line is a "Must Also Register"
@@ -194,23 +194,34 @@ def _row_to_section(row):
         # if cell.get('rowspan') == '1' or len(textLines) == '1':
         #     return '\n'.join(textLines)
         # So the following is the safest:
-        if len(textLines) == 1:
+        if len(text_lines) == 1:
             return {
-                'title': textLines[0],
+                'title': text_lines[0],
                 'notes': ''
             }
         else:
             result = {
-                'title': textLines[0],
-                'notes': [s.title() for s in textLines[1:]]
+                'title': text_lines[0],
+                'notes': ''
             }
 
-            # Distinguish sub-title from note info
-            if not result['notes'][0].startswith(('Must ', 'Class ', 'Includes ')):
-                result['title'] += '\n' + result['notes'][0]
-                result['notes'].pop(0)
+            # Distinguish sub-titles from note info
+            notes_started = False
+            for note_beginning, line in enumerate(text_lines[1:]): # skip title line 0
+                for note_indicator in ('Must ', 'Class ', 'Includes '):
+                    if note_indicator in line:
+                        notes_started = True
+                        break
+                if notes_started: break
+            if notes_started:
+                for j in range(1, 1 + note_beginning): # sync with text_lines[1:]
+                    result['title'] += '\n' + text_lines[j]
+                for j in range(1 + note_beginning, len(text_lines)):
+                    result['notes'] += '\n' + text_lines[j]
+                result['notes'] = result['notes'].lstrip()
+            else:
+                result['title'] = '\n'.join(text_lines)
 
-            result['notes'] = '\n'.join(result['notes'])
             return result
 
 
