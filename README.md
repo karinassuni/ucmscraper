@@ -1,6 +1,40 @@
 # UCMercedule: Scraper
 A Python module that scrapes [UC Merced class schedules][1] for you!
 
+## Installation
+```
+pipenv install ucmscraper
+```
+
+## Example usage
+```python
+import json
+import pathlib
+import ucmscraper
+
+# Create example folder to store output files
+pathlib.Path('./example').mkdir(exist_ok=True)
+
+schedule = ucmscraper.Schedule.fetch_latest()
+
+# used to serialize the namedtuples as .json files
+class NamedTupleIterEncoder(json.JSONEncoder):
+def default(self, o):
+return [t._asdict() for t in o]
+
+term = schedule.term.name
+with open('example/{}.html'.format(term), 'w') as f:
+f.write(schedule.html)
+# OrderedDicts don't need sort_keys=True
+with open('example/{} - Departments.json'.format(term), 'w') as f:
+json.dump(schedule.departments, f, indent=4)
+with open('example/{} - Courses.json'.format(term), 'w') as f:
+json.dump([t._asdict() for t in schedule.courses], f, indent=4)
+with open('example/{} - Sections.json'.format(term), 'w') as f:
+json.dump([t._asdict() for t in schedule.sections], f, indent=4)
+```
+Check out the resulting schedule files in the [example folder](example/).
+
 ## API
 Using this module pretty much just entails 1. creating a Schedule instance and
 2. reading its data attributes; see below for more details.
@@ -143,48 +177,6 @@ when you click "View Class Schedule".
 
 `Term.name` - a string containing a term name associated with one of the
 aforementioned radio buttons.
-
-## Installation
-```
-pipenv install ucmscraper
-```
-
-## Example usage
-```python
-import json
-import pathlib
-import ucmscraper
-
-# Create example folder to store output files
-pathlib.Path('./example').mkdir(exist_ok=True)
-
-def get_last_value(ordered_dict):
-    return next(reversed(ordered_dict.values()))
-
-latest_term = get_last_value(ucmscraper.get_current_terms())
-try:
-    with open('example/{}.html'.format(latest_term.name), 'r') as f:
-        schedule_html = f.read()
-        schedule = ucmscraper.Schedule(schedule_html, latest_term)
-except FileNotFoundError:
-    schedule = ucmscraper.Schedule.fetch_latest()
-
-class NamedTupleIterEncoder(json.JSONEncoder):
-    def default(self, o):
-        return [t._asdict() for t in o]
-
-term = schedule.term.name
-with open('example/{}.html'.format(term), 'w') as f:
-    f.write(schedule.html)
-# OrderedDicts don't need sort_keys=True
-with open('example/{} - Departments.json'.format(term), 'w') as f:
-    json.dump(schedule.departments, f, indent=4)
-with open('example/{} - Courses.json'.format(term), 'w') as f:
-    json.dump([t._asdict() for t in schedule.courses], f, indent=4)
-with open('example/{} - Sections.json'.format(term), 'w') as f:
-    json.dump([t._asdict() for t in schedule.sections], f, indent=4)
-```
-Check out the resulting schedule files in the [example folder](example/).
 
 [1]: https://mystudentrecord.ucmerced.edu/pls/PROD/xhwschedule.p_selectsubject
 [2]: https://docs.python.org/3.5/library/collections.html#collections.OrderedDict

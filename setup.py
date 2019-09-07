@@ -7,6 +7,7 @@ setup(
     name='ucmscraper',
     description='Module for scraping UC Merced\'s class schedules',
     long_description=long_description,
+    long_description_content_type="text/markdown",
     version='2.2.0',
     author='Karina Antonio',
     author_email='karinafantonio@gmail.com',
